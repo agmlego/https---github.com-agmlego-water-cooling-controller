@@ -1,6 +1,8 @@
 {
     "cSpell.words": [
-        "dtostrf"
+        "Adafruit",
+        "dtostrf",
+        "SWITCHCAPVCC"
     ],
     "cmake.configureOnOpen": false
 }

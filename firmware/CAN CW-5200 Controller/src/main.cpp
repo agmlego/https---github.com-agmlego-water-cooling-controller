@@ -90,8 +90,10 @@ uint32_t compressor_lockout = 60 * 1000;
 uint16_t error_code = 0;
 bool running_state = true;
 
+void runCoolingCycle();
 void setError(uint16_t);
 void printAddress(DeviceAddress);
+void updateDisplay();
 int ringMeter(const char *, int, int, int, int, int, int, const char *);
 
 void setup()
@@ -129,8 +131,11 @@ void setup()
         setError(CASE_BME280_NO_CONNECT);
         Serial.printf("Error %04X: No connect to BME!", error_code);
     }
-    bme_temp->printSensorDetails();
-    bme_humidity->printSensorDetails();
+    else
+    {
+        bme_temp->printSensorDetails();
+        bme_humidity->printSensorDetails();
+    }
 
     // SSD1306_SWITCHCAPVCC = generate display voltage from 3.3V internally
     if (!display.begin(SSD1306_SWITCHCAPVCC, SCREEN_ADDRESS))
@@ -138,17 +143,23 @@ void setup()
         setError(CASE_DISPLAY_NO_CONNECT);
         Serial.printf("Error %04X: No connect to display!", error_code);
     }
-    display.setTextSize(1);              // Normal 1:1 pixel scale
-    display.setTextColor(SSD1306_WHITE); // Draw white text
-    display.setCursor(0, 0);             // Start at top-left corner
-    display.cp437(true);                 // Use full 256 char 'Code Page 437' font
+    else
+    {
+        display.setTextSize(1);              // Normal 1:1 pixel scale
+        display.setTextColor(SSD1306_WHITE); // Draw white text
+        display.setCursor(0, 0);             // Start at top-left corner
+        display.cp437(true);                 // Use full 256 char 'Code Page 437' font
+    }
 
     if (!lox.begin())
     {
         setError(RESERVOIR_VL53L0X_NO_CONNECT);
         Serial.printf("Error %04X: Failed to boot VL53L0X", error_code);
     }
-    lox.startRangeContinuous();
+    else
+    {
+        lox.startRangeContinuous();
+    }
     resRA.clear();
 
     sensors.begin();
@@ -162,6 +173,7 @@ void setup()
         Serial.print("outside_temp Address: ");
         printAddress(outside_temp);
         Serial.println();
+        sensors.setResolution(outside_temp, TEMPERATURE_PRECISION);
     }
 
     if (!sensors.getAddress(reservoir_temp, 1))
@@ -174,10 +186,8 @@ void setup()
         Serial.print("reservoir_temp Address: ");
         printAddress(reservoir_temp);
         Serial.println();
+        sensors.setResolution(reservoir_temp, TEMPERATURE_PRECISION);
     }
-
-    sensors.setResolution(reservoir_temp, TEMPERATURE_PRECISION);
-    sensors.setResolution(outside_temp, TEMPERATURE_PRECISION);
 }
 
 void loop()
@@ -204,20 +214,22 @@ void loop()
     sensors_event_t temp_event, humidity_event;
     bme_temp->getEvent(&temp_event);
     bme_humidity->getEvent(&humidity_event);
-    if (temp_event.temperature > case_temperature_high_limit)
+    case_temperature_reading = temp_event.temperature;
+    case_humidity_reading = humidity_event.relative_humidity;
+    if (case_temperature_reading > case_temperature_high_limit)
     {
         setError(CASE_TEMP_TOO_HIGH);
-        Serial.printf("Error %04X: Case temperature too high! %dC > %dC\n", error_code, temp_event.temperature, case_temperature_high_limit);
+        Serial.printf("Error %04X: Case temperature too high! %dC > %dC\n", error_code, case_temperature_reading, case_temperature_high_limit);
     }
-    if (temp_event.temperature < case_temperature_low_limit)
+    if (case_temperature_reading < case_temperature_low_limit)
     {
         setError(CASE_TEMP_TOO_LOW);
-        Serial.printf("Error %04X: Case temperature too low! %dC < %dC\n", error_code, temp_event.temperature, case_temperature_low_limit);
+        Serial.printf("Error %04X: Case temperature too low! %dC < %dC\n", error_code, case_temperature_reading, case_temperature_low_limit);
     }
-    if (humidity_event.relative_humidity > case_humidity_high_limit)
+    if (case_humidity_reading > case_humidity_high_limit)
     {
         setError(CASE_HUMIDITY_TOO_HIGH);
-        Serial.printf("Error %04X: Case humidity too high! %d%% > %d%%\n", error_code, humidity_event.relative_humidity, case_humidity_high_limit);
+        Serial.printf("Error %04X: Case humidity too high! %d%% > %d%%\n", error_code, case_humidity_reading, case_humidity_high_limit);
     }
 
     /*
@@ -315,6 +327,13 @@ void loop()
         Serial.printf("Error %04X: Filter delta-P too high! %d > %d\n", error_code, (int)filterRA.getAverage(), filter_high_limit);
     }
 
+    runCoolingCycle();
+
+    updateDisplay();
+}
+
+void runCoolingCycle()
+{
     /*
      *   Cooling Cycle
      */
@@ -356,7 +375,28 @@ void loop()
             Serial.printf("Error %04X: No flow with pump running!", error_code);
         }
     }
+}
 
+void setError(uint16_t error)
+{
+    error_code = error;
+    digitalWrite(ALARMS_RLY, LOW);
+}
+
+// function to print a device address
+void printAddress(DeviceAddress deviceAddress)
+{
+    for (uint8_t i = 0; i < 8; i++)
+    {
+        // zero pad the address if necessary
+        if (deviceAddress[i] < 16)
+            Serial.print("0");
+        Serial.print(deviceAddress[i], HEX);
+    }
+}
+
+void updateDisplay()
+{
     /*
      *   Display Update Cycle
      */
@@ -371,9 +411,9 @@ void loop()
         {
         case 0:
             display.clearDisplay();
-            ringMeter("Case T", temp_event.temperature, 0, 100, 0, 0, GAUGE_RADIUS, "\xF8"
-                                                                                    "C");
-            ringMeter("Case RH", humidity_event.relative_humidity, 0, 100, SCREEN_WIDTH - 2 * GAUGE_RADIUS, 0, GAUGE_RADIUS, "%");
+            ringMeter("Case T", case_temperature_reading, 0, 100, 0, 0, GAUGE_RADIUS, "\xF8"
+                                                                                      "C");
+            ringMeter("Case RH", case_humidity_reading, 0, 100, SCREEN_WIDTH - 2 * GAUGE_RADIUS, 0, GAUGE_RADIUS, "%");
             display.display();
             break;
         case 1:
@@ -399,24 +439,6 @@ void loop()
         default:
             break;
         }
-    }
-}
-
-void setError(uint16_t error)
-{
-    error_code = error;
-    digitalWrite(ALARMS_RLY, LOW);
-}
-
-// function to print a device address
-void printAddress(DeviceAddress deviceAddress)
-{
-    for (uint8_t i = 0; i < 8; i++)
-    {
-        // zero pad the address if necessary
-        if (deviceAddress[i] < 16)
-            Serial.print("0");
-        Serial.print(deviceAddress[i], HEX);
     }
 }
 
