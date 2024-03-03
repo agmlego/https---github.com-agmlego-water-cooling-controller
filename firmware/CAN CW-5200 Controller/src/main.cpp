@@ -7,6 +7,7 @@
 #include <RunningAverage.h>
 #include <OneWire.h>
 #include <DallasTemperature.h>
+#include <FlexCAN.h>
 
 #include "error_codes.h"
 
@@ -90,6 +91,8 @@ uint32_t compressor_lockout = 60 * 1000;
 uint16_t error_code = 0;
 bool running_state = true;
 
+static CAN_message_t msg, rxmsg;
+
 void runCoolingCycle();
 void setError(uint16_t);
 void printAddress(DeviceAddress);
@@ -126,10 +129,21 @@ void setup()
     }
     Serial.println("CAN CW_5200 Controller");
 
+    Can0.begin();
+
+    msg.ext = 0;
+    msg.id = 0x10;
+    msg.len = 4;
+    msg.buf[0] = 0xDE;
+    msg.buf[1] = 0xAD;
+    msg.buf[2] = 0xBE;
+    msg.buf[3] = 0xEF;
+    Can0.write(msg);
+
     if (!bme.begin(BME_ADDRESS))
     {
         setError(CASE_BME280_NO_CONNECT);
-        Serial.printf("Error %04X: No connect to BME!", error_code);
+        Serial.printf("Error %04X: No connect to BME!\n", error_code);
     }
     else
     {
@@ -141,7 +155,7 @@ void setup()
     if (!display.begin(SSD1306_SWITCHCAPVCC, SCREEN_ADDRESS))
     {
         setError(CASE_DISPLAY_NO_CONNECT);
-        Serial.printf("Error %04X: No connect to display!", error_code);
+        Serial.printf("Error %04X: No connect to display!\n", error_code);
     }
     else
     {
@@ -154,7 +168,7 @@ void setup()
     if (!lox.begin())
     {
         setError(RESERVOIR_VL53L0X_NO_CONNECT);
-        Serial.printf("Error %04X: Failed to boot VL53L0X", error_code);
+        Serial.printf("Error %04X: Failed to boot VL53L0X\n", error_code);
     }
     else
     {
@@ -166,7 +180,7 @@ void setup()
     if (!sensors.getAddress(outside_temp, 0))
     {
         setError(CASE_NO_OUTSIDE_DS18B20_ADDRESS);
-        Serial.printf("Error %04X: Unable to find address for outside_temp", error_code);
+        Serial.printf("Error %04X: Unable to find address for outside_temp\n", error_code);
     }
     else
     {
@@ -179,7 +193,7 @@ void setup()
     if (!sensors.getAddress(reservoir_temp, 1))
     {
         setError(RESERVOIR_NO_DS18B20_ADDRESS);
-        Serial.printf("Error %04X: Unable to find address for reservoir_temp", error_code);
+        Serial.printf("Error %04X: Unable to find address for reservoir_temp\n", error_code);
     }
     else
     {
@@ -188,10 +202,12 @@ void setup()
         Serial.println();
         sensors.setResolution(reservoir_temp, TEMPERATURE_PRECISION);
     }
+    delay(5000);
 }
 
 void loop()
 {
+    Serial.printf("CAN 0 at %d baud\n", Can0.get_baud());
     digitalWrite(LED_BUILTIN, LOW);
 
     /*
@@ -240,7 +256,7 @@ void loop()
     if (reservoir_temp_reading == DEVICE_DISCONNECTED_C)
     {
         setError(RESERVOIR_NO_DS18B20_READ);
-        Serial.printf("Error %04X: Could not read reservoir temperature data", error_code);
+        Serial.printf("Error %04X: Could not read reservoir temperature data\n", error_code);
         reservoir_temp_reading = 0.0;
     }
     if (reservoir_temp_reading > reservoir_temp_high_limit)
@@ -261,7 +277,7 @@ void loop()
     if (outside_temp_reading == DEVICE_DISCONNECTED_C)
     {
         setError(CASE_NO_OUTSIDE_DS18B20_READ);
-        Serial.printf("Error %04X: Could not read outside temperature data", error_code);
+        Serial.printf("Error %04X: Could not read outside temperature data\n", error_code);
         outside_temp_reading = 0.0;
     }
     if (outside_temp_reading > outside_temp_high_limit)
@@ -298,7 +314,7 @@ void loop()
             if (fan_pwm_level > 0)
             {
                 setError(CASE_TOP_FAN_LOW_RPM);
-                Serial.printf("Error %04X: Top fan RPM too low!", error_code);
+                Serial.printf("Error %04X: Top fan RPM too low!\n", error_code);
             }
         }
 
@@ -312,7 +328,7 @@ void loop()
             if (fan_pwm_level > 0)
             {
                 setError(CASE_BOTTOM_FAN_LOW_RPM);
-                Serial.printf("Error %04X: Bottom fan RPM too low!", error_code);
+                Serial.printf("Error %04X: Bottom fan RPM too low!\n", error_code);
             }
         }
     }
@@ -330,6 +346,7 @@ void loop()
     runCoolingCycle();
 
     updateDisplay();
+    delay(1000); // TODO: REMOVE ME
 }
 
 void runCoolingCycle()
@@ -372,7 +389,7 @@ void runCoolingCycle()
         if (digitalRead(PUMP_RLY) == HIGH && digitalRead(FLOW_SW) == HIGH)
         {
             setError(RESERVOIR_PUMP_ON_WITH_NO_FLOW);
-            Serial.printf("Error %04X: No flow with pump running!", error_code);
+            Serial.printf("Error %04X: No flow with pump running!\n", error_code);
         }
     }
 }
@@ -381,6 +398,20 @@ void setError(uint16_t error)
 {
     error_code = error;
     digitalWrite(ALARMS_RLY, LOW);
+    msg.id = 0x10;
+    msg.len = 3;
+    msg.buf[0] = 0xFF;
+    msg.buf[1] = (error_code >> 8) & 0xFF;
+    msg.buf[2] = error_code & 0xFF;
+    Serial.printf("Msg 0x%08X: (%dl) ",
+                  msg.id,
+                  msg.len);
+    for (uint8_t idx = 0; idx < msg.len; ++idx)
+    {
+        Serial.printf("%02X ", msg.buf[idx]);
+    }
+    Serial.println();
+    Can0.write(msg);
 }
 
 // function to print a device address
