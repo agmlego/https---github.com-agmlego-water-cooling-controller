@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <export version="E">
   <design>
-    <source>D:\documents\projects\home_automation\can_pcie_water_loop\can_pcie_water_loop.kicad_sch</source>
+    <source>C:\Users\agmlego\Documents\projects\home_automation\can_pcie_water_loop\hardware\electrical\pcie_water_loop_controller.kicad_sch</source>
     <date>2023-08-21 20:34:38</date>
     <tool>Eeschema (7.0.0)</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
-        <title>CAN/PCIe Water Cooling Loop Controller</title>
+        <title>RS232/PCIe Water Cooling Loop Controller</title>
         <company>AGMLego</company>
         <rev/>
         <date>2023-08-16</date>
-        <source>can_pcie_water_loop.kicad_sch</source>
+        <source>pcie_water_loop_controller.kicad_sch</source>
         <comment number="1" value="https://github.com/agmlego/water-cooling-controller"/>
         <comment number="2" value=""/>
         <comment number="3" value=""/>
@@ -29,7 +29,7 @@
       <footprint>Capacitor_SMD:C_1206_3216Metric</footprint>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Unpolarized capacitor, small symbol"/>
       <property name="ki_keywords" value="capacitor cap"/>
       <sheetpath names="/" tstamps="/"/>
@@ -40,7 +40,7 @@
       <footprint>Capacitor_SMD:C_1206_3216Metric</footprint>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Unpolarized capacitor, small symbol"/>
       <property name="ki_keywords" value="capacitor cap"/>
       <sheetpath names="/" tstamps="/"/>
@@ -51,7 +51,7 @@
       <footprint>Capacitor_SMD:C_1206_3216Metric</footprint>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Unpolarized capacitor, small symbol"/>
       <property name="ki_keywords" value="capacitor cap"/>
       <sheetpath names="/" tstamps="/"/>
@@ -62,7 +62,7 @@
       <footprint>LED_SMD:LED_1206_3216Metric</footprint>
       <libsource lib="Device" part="LED_Small" description="Light emitting diode, small symbol"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Light emitting diode, small symbol"/>
       <property name="ki_keywords" value="LED diode light-emitting-diode"/>
       <sheetpath names="/" tstamps="/"/>
@@ -73,7 +73,7 @@
       <footprint>LED_SMD:LED_1206_3216Metric</footprint>
       <libsource lib="Device" part="LED_Small" description="Light emitting diode, small symbol"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Light emitting diode, small symbol"/>
       <property name="ki_keywords" value="LED diode light-emitting-diode"/>
       <sheetpath names="/" tstamps="/"/>
@@ -84,7 +84,7 @@
       <footprint>LED_SMD:LED_1206_3216Metric</footprint>
       <libsource lib="Device" part="LED_Small" description="Light emitting diode, small symbol"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Light emitting diode, small symbol"/>
       <property name="ki_keywords" value="LED diode light-emitting-diode"/>
       <sheetpath names="/" tstamps="/"/>
@@ -95,7 +95,7 @@
       <footprint>LED_SMD:LED_1206_3216Metric</footprint>
       <libsource lib="Device" part="LED_Small" description="Light emitting diode, small symbol"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Light emitting diode, small symbol"/>
       <property name="ki_keywords" value="LED diode light-emitting-diode"/>
       <sheetpath names="/" tstamps="/"/>
@@ -106,7 +106,7 @@
       <footprint>LED_SMD:LED_1206_3216Metric</footprint>
       <libsource lib="Device" part="LED_Small" description="Light emitting diode, small symbol"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Light emitting diode, small symbol"/>
       <property name="ki_keywords" value="LED diode light-emitting-diode"/>
       <sheetpath names="/" tstamps="/"/>
@@ -117,7 +117,7 @@
       <footprint>LED_SMD:LED_1206_3216Metric</footprint>
       <libsource lib="Device" part="LED_Small" description="Light emitting diode, small symbol"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Light emitting diode, small symbol"/>
       <property name="ki_keywords" value="LED diode light-emitting-diode"/>
       <sheetpath names="/" tstamps="/"/>
@@ -133,7 +133,7 @@
       <libsource lib="LED" part="WS2812B" description="RGB LED with integrated controller"/>
       <property name="Signal" value="WS2811B"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="RGB LED with integrated controller"/>
       <property name="ki_keywords" value="RGB LED NeoPixel addressable"/>
       <sheetpath names="/" tstamps="/"/>
@@ -149,7 +149,7 @@
       <libsource lib="LED" part="WS2812B" description="RGB LED with integrated controller"/>
       <property name="Signal" value="WS2811B"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="RGB LED with integrated controller"/>
       <property name="ki_keywords" value="RGB LED NeoPixel addressable"/>
       <sheetpath names="/" tstamps="/"/>
@@ -165,7 +165,7 @@
       <libsource lib="LED" part="WS2812B" description="RGB LED with integrated controller"/>
       <property name="Signal" value="WS2811B"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="RGB LED with integrated controller"/>
       <property name="ki_keywords" value="RGB LED NeoPixel addressable"/>
       <sheetpath names="/" tstamps="/"/>
@@ -181,7 +181,7 @@
       <libsource lib="LED" part="WS2812B" description="RGB LED with integrated controller"/>
       <property name="Signal" value="WS2811B"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="RGB LED with integrated controller"/>
       <property name="ki_keywords" value="RGB LED NeoPixel addressable"/>
       <sheetpath names="/" tstamps="/"/>
@@ -192,7 +192,7 @@
       <footprint>MountingHole:MountingHole_3.2mm_M3_Pad_Via</footprint>
       <libsource lib="Mechanical" part="MountingHole_Pad" description="Mounting Hole with connection"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Mounting Hole with connection"/>
       <property name="ki_keywords" value="mounting hole"/>
       <sheetpath names="/" tstamps="/"/>
@@ -203,7 +203,7 @@
       <footprint>MountingHole:MountingHole_3.2mm_M3_Pad_Via</footprint>
       <libsource lib="Mechanical" part="MountingHole_Pad" description="Mounting Hole with connection"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Mounting Hole with connection"/>
       <property name="ki_keywords" value="mounting hole"/>
       <sheetpath names="/" tstamps="/"/>
@@ -214,7 +214,7 @@
       <footprint>MountingHole:MountingHole_2.2mm_M2</footprint>
       <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Mounting Hole without connection"/>
       <property name="ki_keywords" value="mounting hole"/>
       <sheetpath names="/" tstamps="/"/>
@@ -225,7 +225,7 @@
       <footprint>MountingHole:MountingHole_2.2mm_M2</footprint>
       <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Mounting Hole without connection"/>
       <property name="ki_keywords" value="mounting hole"/>
       <sheetpath names="/" tstamps="/"/>
@@ -236,7 +236,7 @@
       <footprint>MountingHole:MountingHole_2.2mm_M2</footprint>
       <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Mounting Hole without connection"/>
       <property name="ki_keywords" value="mounting hole"/>
       <sheetpath names="/" tstamps="/"/>
@@ -247,7 +247,7 @@
       <footprint>MountingHole:MountingHole_2.2mm_M2</footprint>
       <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Mounting Hole without connection"/>
       <property name="ki_keywords" value="mounting hole"/>
       <sheetpath names="/" tstamps="/"/>
@@ -258,7 +258,7 @@
       <footprint>MountingHole:MountingHole_3.2mm_M3</footprint>
       <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Mounting Hole without connection"/>
       <property name="ki_keywords" value="mounting hole"/>
       <sheetpath names="/" tstamps="/"/>
@@ -270,7 +270,7 @@
       <datasheet>http://www.ritrontek.com/uploadfile/2016/1026/20161026105231124.pdf#page=63</datasheet>
       <libsource lib="Connector" part="Bus_PCI_Express_x1" description="PCI Express bus connector x1"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="PCI Express bus connector x1"/>
       <property name="ki_keywords" value="pcie"/>
       <sheetpath names="/" tstamps="/"/>
@@ -282,7 +282,7 @@
       <datasheet> ~</datasheet>
       <libsource lib="Connector" part="DE9_Plug_MountingHoles" description="9-pin male plug pin D-SUB connector, Mounting Hole"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="9-pin male plug pin D-SUB connector, Mounting Hole"/>
       <property name="ki_keywords" value="connector plug male D-SUB DB9"/>
       <sheetpath names="/" tstamps="/"/>
@@ -293,7 +293,7 @@
       <footprint>Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Horizontal</footprint>
       <libsource lib="Connector" part="Conn_01x02_Pin" description="Generic connector, single row, 01x02, script generated"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Generic connector, single row, 01x02, script generated"/>
       <property name="ki_keywords" value="connector"/>
       <sheetpath names="/" tstamps="/"/>
@@ -304,7 +304,7 @@
       <footprint>Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Horizontal</footprint>
       <libsource lib="Connector" part="Conn_01x02_Pin" description="Generic connector, single row, 01x02, script generated"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Generic connector, single row, 01x02, script generated"/>
       <property name="ki_keywords" value="connector"/>
       <sheetpath names="/" tstamps="/"/>
@@ -315,7 +315,7 @@
       <footprint>Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Horizontal</footprint>
       <libsource lib="Connector" part="Conn_01x02_Pin" description="Generic connector, single row, 01x02, script generated"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Generic connector, single row, 01x02, script generated"/>
       <property name="ki_keywords" value="connector"/>
       <sheetpath names="/" tstamps="/"/>
@@ -326,7 +326,7 @@
       <footprint>Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Horizontal</footprint>
       <libsource lib="Connector" part="Conn_01x02_Pin" description="Generic connector, single row, 01x02, script generated"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Generic connector, single row, 01x02, script generated"/>
       <property name="ki_keywords" value="connector"/>
       <sheetpath names="/" tstamps="/"/>
@@ -337,7 +337,7 @@
       <footprint>Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical</footprint>
       <libsource lib="Connector" part="Conn_01x04_Pin" description="Generic connector, single row, 01x04, script generated"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Generic connector, single row, 01x04, script generated"/>
       <property name="ki_keywords" value="connector"/>
       <sheetpath names="/" tstamps="/"/>
@@ -348,7 +348,7 @@
       <footprint>Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical</footprint>
       <libsource lib="Connector" part="Conn_01x04_Pin" description="Generic connector, single row, 01x04, script generated"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Generic connector, single row, 01x04, script generated"/>
       <property name="ki_keywords" value="connector"/>
       <sheetpath names="/" tstamps="/"/>
@@ -359,7 +359,7 @@
       <footprint>Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Horizontal</footprint>
       <libsource lib="Connector" part="Conn_01x03_Pin" description="Generic connector, single row, 01x03, script generated"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Generic connector, single row, 01x03, script generated"/>
       <property name="ki_keywords" value="connector"/>
       <sheetpath names="/" tstamps="/"/>
@@ -370,7 +370,7 @@
       <footprint>Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Horizontal</footprint>
       <libsource lib="Connector" part="Conn_01x03_Pin" description="Generic connector, single row, 01x03, script generated"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Generic connector, single row, 01x03, script generated"/>
       <property name="ki_keywords" value="connector"/>
       <sheetpath names="/" tstamps="/"/>
@@ -381,7 +381,7 @@
       <footprint>Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Horizontal</footprint>
       <libsource lib="Connector" part="Conn_01x02_Pin" description="Generic connector, single row, 01x02, script generated"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Generic connector, single row, 01x02, script generated"/>
       <property name="ki_keywords" value="connector"/>
       <sheetpath names="/" tstamps="/"/>
@@ -392,7 +392,7 @@
       <footprint>Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Horizontal</footprint>
       <libsource lib="Connector" part="Conn_01x02_Pin" description="Generic connector, single row, 01x02, script generated"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Generic connector, single row, 01x02, script generated"/>
       <property name="ki_keywords" value="connector"/>
       <sheetpath names="/" tstamps="/"/>
@@ -403,7 +403,7 @@
       <footprint>Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical</footprint>
       <libsource lib="Connector" part="Conn_01x04_Pin" description="Generic connector, single row, 01x04, script generated"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Generic connector, single row, 01x04, script generated"/>
       <property name="ki_keywords" value="connector"/>
       <sheetpath names="/" tstamps="/"/>
@@ -414,7 +414,7 @@
       <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
       <libsource lib="Device" part="R_Small_US" description="Resistor, small US symbol"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Resistor, small US symbol"/>
       <property name="ki_keywords" value="r resistor"/>
       <sheetpath names="/" tstamps="/"/>
@@ -425,7 +425,7 @@
       <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
       <libsource lib="Device" part="R_Small_US" description="Resistor, small US symbol"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Resistor, small US symbol"/>
       <property name="ki_keywords" value="r resistor"/>
       <sheetpath names="/" tstamps="/"/>
@@ -436,7 +436,7 @@
       <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
       <libsource lib="Device" part="R_Small_US" description="Resistor, small US symbol"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Resistor, small US symbol"/>
       <property name="ki_keywords" value="r resistor"/>
       <sheetpath names="/" tstamps="/"/>
@@ -447,7 +447,7 @@
       <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
       <libsource lib="Device" part="R_Small_US" description="Resistor, small US symbol"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Resistor, small US symbol"/>
       <property name="ki_keywords" value="r resistor"/>
       <sheetpath names="/" tstamps="/"/>
@@ -458,7 +458,7 @@
       <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
       <libsource lib="Device" part="R_Small_US" description="Resistor, small US symbol"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Resistor, small US symbol"/>
       <property name="ki_keywords" value="r resistor"/>
       <sheetpath names="/" tstamps="/"/>
@@ -469,7 +469,7 @@
       <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
       <libsource lib="Device" part="R_Small_US" description="Resistor, small US symbol"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Resistor, small US symbol"/>
       <property name="ki_keywords" value="r resistor"/>
       <sheetpath names="/" tstamps="/"/>
@@ -480,7 +480,7 @@
       <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
       <libsource lib="Device" part="R_Small_US" description="Resistor, small US symbol"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Resistor, small US symbol"/>
       <property name="ki_keywords" value="r resistor"/>
       <sheetpath names="/" tstamps="/"/>
@@ -491,7 +491,7 @@
       <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
       <libsource lib="Device" part="R_Small_US" description="Resistor, small US symbol"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Resistor, small US symbol"/>
       <property name="ki_keywords" value="r resistor"/>
       <sheetpath names="/" tstamps="/"/>
@@ -502,7 +502,7 @@
       <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
       <libsource lib="Device" part="R_Small_US" description="Resistor, small US symbol"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Resistor, small US symbol"/>
       <property name="ki_keywords" value="r resistor"/>
       <sheetpath names="/" tstamps="/"/>
@@ -513,7 +513,7 @@
       <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
       <libsource lib="Device" part="R_Small_US" description="Resistor, small US symbol"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Resistor, small US symbol"/>
       <property name="ki_keywords" value="r resistor"/>
       <sheetpath names="/" tstamps="/"/>
@@ -524,7 +524,7 @@
       <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
       <libsource lib="Device" part="R_Small_US" description="Resistor, small US symbol"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Resistor, small US symbol"/>
       <property name="ki_keywords" value="r resistor"/>
       <sheetpath names="/" tstamps="/"/>
@@ -535,7 +535,7 @@
       <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
       <libsource lib="Device" part="R_Small_US" description="Resistor, small US symbol"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Resistor, small US symbol"/>
       <property name="ki_keywords" value="r resistor"/>
       <sheetpath names="/" tstamps="/"/>
@@ -546,7 +546,7 @@
       <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
       <libsource lib="Device" part="R_Small_US" description="Resistor, small US symbol"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Resistor, small US symbol"/>
       <property name="ki_keywords" value="r resistor"/>
       <sheetpath names="/" tstamps="/"/>
@@ -557,7 +557,7 @@
       <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
       <libsource lib="Device" part="R_Small_US" description="Resistor, small US symbol"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Resistor, small US symbol"/>
       <property name="ki_keywords" value="r resistor"/>
       <sheetpath names="/" tstamps="/"/>
@@ -568,7 +568,7 @@
       <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
       <libsource lib="Device" part="R_Small_US" description="Resistor, small US symbol"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Resistor, small US symbol"/>
       <property name="ki_keywords" value="r resistor"/>
       <sheetpath names="/" tstamps="/"/>
@@ -579,7 +579,7 @@
       <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
       <libsource lib="Device" part="R_Small_US" description="Resistor, small US symbol"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Resistor, small US symbol"/>
       <property name="ki_keywords" value="r resistor"/>
       <sheetpath names="/" tstamps="/"/>
@@ -590,7 +590,7 @@
       <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
       <libsource lib="Device" part="R_Small_US" description="Resistor, small US symbol"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Resistor, small US symbol"/>
       <property name="ki_keywords" value="r resistor"/>
       <sheetpath names="/" tstamps="/"/>
@@ -601,7 +601,7 @@
       <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
       <libsource lib="Device" part="R_Small_US" description="Resistor, small US symbol"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Resistor, small US symbol"/>
       <property name="ki_keywords" value="r resistor"/>
       <sheetpath names="/" tstamps="/"/>
@@ -612,7 +612,7 @@
       <footprint>teensy:Teensy30_31_32_All_Pins</footprint>
       <libsource lib="teensy" part="Teensy3.2" description=""/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>3fcac594-9273-41b7-acae-3e733d78d8b9</tstamps>
     </comp>
@@ -622,7 +622,7 @@
       <datasheet>http://ww1.microchip.com/downloads/en/DeviceDoc/25167A.pdf</datasheet>
       <libsource lib="Interface_CAN_LIN" part="MCP2561-E-SN" description="High-Speed CAN Transceiver, 1Mbps, 5V supply, SPLIT pin, -40C to +125C, SOIC-8"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="High-Speed CAN Transceiver, 1Mbps, 5V supply, SPLIT pin, -40C to +125C, SOIC-8"/>
       <property name="ki_keywords" value="High-Speed CAN Transceiver"/>
       <sheetpath names="/" tstamps="/"/>
@@ -634,7 +634,7 @@
       <datasheet>http://www.vishay.com/docs/83606/cny17.pdf</datasheet>
       <libsource lib="Isolator" part="CNY17-3" description="DC Optocoupler Base Connected, Vce 70V, CTR 100-200%, Viso 5000V (RMS), DIP6"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="DC Optocoupler Base Connected, Vce 70V, CTR 100-200%, Viso 5000V (RMS), DIP6"/>
       <property name="ki_keywords" value="NPN DC Optocoupler Base Connected"/>
       <sheetpath names="/" tstamps="/"/>
@@ -646,7 +646,7 @@
       <datasheet>http://www.tracopower.com/products/tsr1.pdf</datasheet>
       <libsource lib="Regulator_Switching" part="TSR_1-2412" description="1A step-down regulator module, fixed 1.2V output voltage, 6-36V input voltage, -40°C to +85°C temperature range, TO-220 compatible LM78xx replacement"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="1A step-down regulator module, fixed 1.2V output voltage, 6-36V input voltage, -40°C to +85°C temperature range, TO-220 compatible LM78xx replacement"/>
       <property name="ki_keywords" value="dc-dc traco buck"/>
       <sheetpath names="/" tstamps="/"/>
@@ -658,7 +658,7 @@
       <datasheet>https://www.ti.com/lit/ds/symlink/sn74lv4t125.pdf</datasheet>
       <libsource lib="74xx" part="SN74LV4T125" description="Single Supply Logic Level Translator Quad Buffer with 3-State Outputs"/>
       <property name="Sheetname" value=""/>
-      <property name="Sheetfile" value="can_pcie_water_loop.kicad_sch"/>
+      <property name="Sheetfile" value="pcie_water_loop_controller.kicad_sch"/>
       <property name="ki_description" value="Single Supply Logic Level Translator Quad Buffer with 3-State Outputs"/>
       <property name="ki_keywords" value="3State CMOS shifter translator"/>
       <sheetpath names="/" tstamps="/"/>

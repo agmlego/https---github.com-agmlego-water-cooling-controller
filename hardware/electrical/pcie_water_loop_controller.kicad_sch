@@ -5,7 +5,7 @@
 	(uuid "dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f")
 	(paper "USLetter")
 	(title_block
-		(title "CAN/PCIe Water Cooling Loop Controller")
+		(title "RS232/PCIe Water Cooling Loop Controller")
 		(date "2023-08-16")
 		(company "AGMLego")
 		(comment 1 "https://github.com/agmlego/water-cooling-controller")
@@ -7543,7 +7543,7 @@
 			(uuid "59a0a132-5e8e-4701-af5e-ce0be55db8f9")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR024")
 					(unit 1)
@@ -7611,7 +7611,7 @@
 			(uuid "cc30e3b2-269f-49e7-9376-d8a8930edc41")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR039")
 					(unit 1)
@@ -7682,7 +7682,7 @@
 			(uuid "f96a6c25-700d-4411-9c1d-b834cae3fa64")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "J9")
 					(unit 1)
@@ -7752,7 +7752,7 @@
 			(uuid "30af4871-dd3e-4c15-bc2c-4a279970fc57")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "C1")
 					(unit 1)
@@ -7865,7 +7865,7 @@
 			(uuid "3ebb53c8-7b85-4314-af9f-1357afa5ae4c")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "U2")
 					(unit 1)
@@ -7935,7 +7935,7 @@
 			(uuid "50239194-6cc2-4642-a56e-a595fe28c8c6")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "R1")
 					(unit 1)
@@ -8002,7 +8002,7 @@
 			(uuid "6f1caddb-7cc8-48e5-84af-0e30fecddcf2")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR042")
 					(unit 1)
@@ -8068,7 +8068,7 @@
 			(uuid "c0b3b54c-8308-4a39-9ebe-7f18db5064c1")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR057")
 					(unit 1)
@@ -8132,7 +8132,7 @@
 			)
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "H4")
 					(unit 1)
@@ -8202,7 +8202,7 @@
 			(uuid "e5f56bb7-b418-4040-9957-78f35592a472")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "R5")
 					(unit 1)
@@ -8268,7 +8268,7 @@
 			(uuid "a2dab3ea-f85a-468e-94f3-7d75dcf053e0")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR053")
 					(unit 1)
@@ -8334,7 +8334,7 @@
 			(uuid "0dfaddf1-a634-4d92-8535-2860583d3cb7")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR021")
 					(unit 1)
@@ -8400,7 +8400,7 @@
 			(uuid "e774700e-a008-4517-8f3c-c1bc0c059a83")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR018")
 					(unit 1)
@@ -8467,7 +8467,7 @@
 			(uuid "7cff4d85-93b0-4c15-a5f7-e45b4461c8ae")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR03")
 					(unit 1)
@@ -8533,7 +8533,7 @@
 			(uuid "8130f6ab-8236-47aa-ade9-5d131b5f3a36")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR05")
 					(unit 1)
@@ -8601,7 +8601,7 @@
 			(uuid "956e5d0f-8244-4f15-a301-136a38ff00cd")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR010")
 					(unit 1)
@@ -8668,7 +8668,7 @@
 			(uuid "49a88668-1557-4c6e-844b-01f0912f38b9")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR063")
 					(unit 1)
@@ -8735,7 +8735,7 @@
 			(uuid "a1fc8e40-2a7f-4b2b-ba38-37f293551635")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR016")
 					(unit 1)
@@ -8801,7 +8801,7 @@
 			(uuid "a6a6203b-0126-4302-88f1-41ab8462f03a")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR028")
 					(unit 1)
@@ -8869,7 +8869,7 @@
 			(uuid "5bcc4832-91d9-423f-89d5-938556b5808b")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "C6")
 					(unit 1)
@@ -8953,7 +8953,7 @@
 			(uuid "fb90ef21-8e0d-4932-8f53-b5d442f08e15")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "D7")
 					(unit 1)
@@ -9019,7 +9019,7 @@
 			(uuid "f43a1ccf-50e8-4360-ae7a-de6837f63b24")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR056")
 					(unit 1)
@@ -9242,7 +9242,7 @@
 			(uuid "e8783927-464d-4fef-a056-c94431a6ac1e")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "U1")
 					(unit 1)
@@ -9309,7 +9309,7 @@
 			(uuid "1a85f49a-4960-4536-9c6e-88a22d0cd413")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR012")
 					(unit 1)
@@ -9379,7 +9379,7 @@
 			(uuid "4c49430a-0928-45ae-bd71-86e53a010290")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "R17")
 					(unit 1)
@@ -9449,7 +9449,7 @@
 			(uuid "0d24b57d-ae13-46ef-b8b7-35fb99a7671d")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "D6")
 					(unit 1)
@@ -9515,7 +9515,7 @@
 			(uuid "06e6026d-0a90-46e1-bf10-6ed549947126")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR036")
 					(unit 1)
@@ -9582,7 +9582,7 @@
 			(uuid "15f9823e-652a-4334-945f-3a0e6d1f6e34")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR015")
 					(unit 1)
@@ -9676,7 +9676,7 @@
 			(uuid "e273630f-442d-49a7-bb44-bbcfd8773a3f")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "J2")
 					(unit 1)
@@ -9750,7 +9750,7 @@
 			(uuid "92db68c2-039c-48df-98f9-9fda861e5bd1")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "J13")
 					(unit 1)
@@ -9820,7 +9820,7 @@
 			(uuid "552fa986-b9c1-4246-881e-f002ebcbd429")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "D1")
 					(unit 1)
@@ -9924,7 +9924,7 @@
 			(uuid "d5978cd1-59f0-4cfa-8b68-e26ce027dd9a")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "U5")
 					(unit 2)
@@ -9991,7 +9991,7 @@
 			(uuid "06bb0f7f-7efa-429c-a9c0-a73dc7f79230")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR062")
 					(unit 1)
@@ -10057,7 +10057,7 @@
 			(uuid "923d146a-5e7d-4efd-bdf8-86ff8172acba")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR026")
 					(unit 1)
@@ -10124,7 +10124,7 @@
 			(uuid "34d50fac-db83-4f72-ab23-d4154e9cc3ee")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR023")
 					(unit 1)
@@ -10192,7 +10192,7 @@
 			(uuid "10a17c72-52ab-4c3a-a110-5a3856aa0b51")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "J4")
 					(unit 1)
@@ -10258,7 +10258,7 @@
 			(uuid "a2f6c708-43ac-4fce-961b-9d7e4e9aba90")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR032")
 					(unit 1)
@@ -10325,7 +10325,7 @@
 			(uuid "747e2bb0-8a90-41e1-8fb3-0e79b1ab0902")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "H2")
 					(unit 1)
@@ -10399,7 +10399,7 @@
 			(uuid "07af16cb-f14f-416c-924f-002e121e8ee9")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "J8")
 					(unit 1)
@@ -10465,7 +10465,7 @@
 			(uuid "a6ccba5c-5911-4423-b164-201908724c95")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR035")
 					(unit 1)
@@ -10535,7 +10535,7 @@
 			(uuid "a47222f9-6134-4724-bf07-d17201c8d684")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "D3")
 					(unit 1)
@@ -10601,7 +10601,7 @@
 			(uuid "83a3dda1-4cf6-4243-b37c-fed151f88afe")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR048")
 					(unit 1)
@@ -10685,7 +10685,7 @@
 			(uuid "6a4f1bcf-8c96-4b6f-88a5-35ff0ce5beb1")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "D9")
 					(unit 1)
@@ -10753,7 +10753,7 @@
 			(uuid "dece25a6-75ab-47e1-b402-7a5152b47889")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "J12")
 					(unit 1)
@@ -10827,7 +10827,7 @@
 			(uuid "4edda558-3a49-44f0-93c0-b056bf4a7c82")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "J7")
 					(unit 1)
@@ -10895,7 +10895,7 @@
 			(uuid "ac409c21-cc8c-4625-be75-e7d023f9b900")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "C3")
 					(unit 1)
@@ -10965,7 +10965,7 @@
 			(uuid "e2a5d266-4f90-4618-a67b-c62ac2f4df9e")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "R16")
 					(unit 1)
@@ -11033,7 +11033,7 @@
 			(uuid "cafdb331-e8af-4e06-abd9-8e64eb90ed30")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "C4")
 					(unit 1)
@@ -11099,7 +11099,7 @@
 			(uuid "8f697606-590e-440f-b3c8-951b46d44dd4")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR037")
 					(unit 1)
@@ -11167,7 +11167,7 @@
 			(uuid "07a9c018-1bc8-4266-9fa6-b1083633101d")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "J11")
 					(unit 1)
@@ -11235,7 +11235,7 @@
 			(uuid "5d024830-11da-4ed0-a557-0f2f5afdfb92")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "C2")
 					(unit 1)
@@ -11305,7 +11305,7 @@
 			(uuid "1dcba4f2-2812-49e2-b3e1-8e401162008e")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "R6")
 					(unit 1)
@@ -11371,7 +11371,7 @@
 			(uuid "62e68871-d972-48bb-ba23-46e50dbe34bb")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR030")
 					(unit 1)
@@ -11435,7 +11435,7 @@
 			)
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "H7")
 					(unit 1)
@@ -11501,7 +11501,7 @@
 			(uuid "74f033f1-be0f-494f-b0f0-78e04c0e183f")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR059")
 					(unit 1)
@@ -11571,7 +11571,7 @@
 			(uuid "a5806b4e-556f-4e8a-ad1f-e6956a1ee036")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "D5")
 					(unit 1)
@@ -11642,7 +11642,7 @@
 			(uuid "d3b8ccd9-0fb7-45cf-bad5-e9c44413ed3d")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "J10")
 					(unit 1)
@@ -11746,7 +11746,7 @@
 			(uuid "eee38644-c144-4d08-a61d-fcd1739bc783")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "U5")
 					(unit 5)
@@ -11815,7 +11815,7 @@
 			(uuid "0030a38a-a29c-4291-a5e4-098b835ff89d")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "R4")
 					(unit 1)
@@ -11881,7 +11881,7 @@
 			(uuid "e4d17c2c-548e-4c13-8d7a-8fb65838544b")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR052")
 					(unit 1)
@@ -11948,7 +11948,7 @@
 			(uuid "4dbd313b-96c0-41e8-a2ec-189bab7cc9cd")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR065")
 					(unit 1)
@@ -12014,7 +12014,7 @@
 			(uuid "97ddad4e-a24b-42b4-b3a0-42d65d4b06cf")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR022")
 					(unit 1)
@@ -12082,7 +12082,7 @@
 			(uuid "ecb2728d-98e8-47f9-877f-3c5e5b906662")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR038")
 					(unit 1)
@@ -12152,7 +12152,7 @@
 			(uuid "2d693a32-32a5-462d-ac4a-429d659c7e19")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "R12")
 					(unit 1)
@@ -12220,7 +12220,7 @@
 			(uuid "267381ed-7de4-473f-bd70-4c64b8fa156b")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "J6")
 					(unit 1)
@@ -12287,7 +12287,7 @@
 			(uuid "cb62ffb2-a722-4dea-a917-f867fca2e8bc")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR013")
 					(unit 1)
@@ -12351,7 +12351,7 @@
 			)
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "H5")
 					(unit 1)
@@ -12417,7 +12417,7 @@
 			(uuid "d4c2225c-c9d4-49c4-bedc-2fa181499c96")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR06")
 					(unit 1)
@@ -12484,7 +12484,7 @@
 			(uuid "34fa8c70-dcd6-4425-bf23-00ea26bb5b6a")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR025")
 					(unit 1)
@@ -12568,7 +12568,7 @@
 			(uuid "aae6bd44-0c21-4450-a6bd-43e196e57c0f")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "D8")
 					(unit 1)
@@ -12634,7 +12634,7 @@
 			(uuid "fe1fe2be-fd65-4311-bfb7-8128050cc821")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR055")
 					(unit 1)
@@ -12700,7 +12700,7 @@
 			(uuid "77107630-63c1-47d5-b253-b672461f1cc5")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR029")
 					(unit 1)
@@ -12804,7 +12804,7 @@
 			(uuid "d5978cd1-59f0-4cfa-8b68-e26ce027dd9a")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "U5")
 					(unit 4)
@@ -12872,7 +12872,7 @@
 			(uuid "a4327423-f7c7-4957-bc0f-da452d4b194a")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR040")
 					(unit 1)
@@ -12938,7 +12938,7 @@
 			(uuid "77b023a4-9b81-4714-979d-de7bcc06fc4b")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR033")
 					(unit 1)
@@ -13004,7 +13004,7 @@
 			(uuid "5c095514-9d26-4c0d-9e80-b6e84b37d9ab")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR049")
 					(unit 1)
@@ -13086,7 +13086,7 @@
 			(uuid "74a32eb5-9eae-40d1-b5db-06fa3d88e87e")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "U3")
 					(unit 1)
@@ -13159,7 +13159,7 @@
 			(uuid "309a07d1-ae0d-4238-bf09-6f9f33b7ed1c")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "U4")
 					(unit 1)
@@ -13226,7 +13226,7 @@
 			(uuid "14d08941-3986-4702-8337-d1b832d98ed1")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "H1")
 					(unit 1)
@@ -13292,7 +13292,7 @@
 			(uuid "2b6a3286-bda4-4554-bd8a-22f02e0039ae")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR019")
 					(unit 1)
@@ -13359,7 +13359,7 @@
 			(uuid "b4e93aac-743a-433c-9d94-196f0eb7fb21")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR014")
 					(unit 1)
@@ -13423,7 +13423,7 @@
 			)
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "H3")
 					(unit 1)
@@ -13489,7 +13489,7 @@
 			(uuid "10c5d10a-f2a1-4b13-9a99-296119410124")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR027")
 					(unit 1)
@@ -13556,7 +13556,7 @@
 			(uuid "54e803df-a79e-478e-81fd-c9a980ed859e")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR041")
 					(unit 1)
@@ -13624,7 +13624,7 @@
 			(uuid "47ae7d9b-eb89-48cf-8f06-f3fdb1a97d45")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "R2")
 					(unit 1)
@@ -13690,7 +13690,7 @@
 			(uuid "96e36b39-a670-4ced-b503-677c09c95189")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR046")
 					(unit 1)
@@ -13757,7 +13757,7 @@
 			(uuid "41db19b5-b35a-4e1b-b253-8cd64d950dcc")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR064")
 					(unit 1)
@@ -13825,7 +13825,7 @@
 			(uuid "75da6601-ff57-482c-8c7d-35634c30af2e")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "C5")
 					(unit 1)
@@ -13891,7 +13891,7 @@
 			(uuid "d0d629e6-c7ef-4658-b39a-4cf3f2f98e99")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR020")
 					(unit 1)
@@ -13975,7 +13975,7 @@
 			(uuid "3648cd17-529f-490d-a44b-5c8f6451c97c")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "D10")
 					(unit 1)
@@ -14041,7 +14041,7 @@
 			(uuid "b035be3f-e526-4138-8131-0268c8d06c2c")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR044")
 					(unit 1)
@@ -14111,7 +14111,7 @@
 			(uuid "c1876e03-4614-4a84-b711-c2e429ec096c")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "R3")
 					(unit 1)
@@ -14177,7 +14177,7 @@
 			(uuid "58cbab92-837c-48e1-ae6e-0858f0f247e6")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR054")
 					(unit 1)
@@ -14247,7 +14247,7 @@
 			(uuid "5570a47e-3f1a-492f-b02f-b7599a5e946e")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "D2")
 					(unit 1)
@@ -14313,7 +14313,7 @@
 			(uuid "c08c68e4-5e50-4ef4-a74d-48af707fef52")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR051")
 					(unit 1)
@@ -14383,7 +14383,7 @@
 			(uuid "f7239236-8b8c-4df3-aa5e-9a3e2b3ef9e3")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "R8")
 					(unit 1)
@@ -14451,7 +14451,7 @@
 			(uuid "67552978-b5e7-4957-906a-a0d4d3fa91df")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR04")
 					(unit 1)
@@ -14521,7 +14521,7 @@
 			(uuid "bf0e911b-01b3-44ec-a0e9-27439ac49fa8")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "R14")
 					(unit 1)
@@ -14587,7 +14587,7 @@
 			(uuid "f718b2dd-bb47-47ad-bcd5-4118feadcf31")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR045")
 					(unit 1)
@@ -14759,7 +14759,7 @@
 			(uuid "fd044e7f-d86a-427c-acaf-e95b8b7d66d1")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "J1")
 					(unit 1)
@@ -14826,7 +14826,7 @@
 			(uuid "973b3f9f-8ba8-4298-81aa-cd4e950dd1d2")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR07")
 					(unit 1)
@@ -14896,7 +14896,7 @@
 			(uuid "33f8abe0-e573-443a-a96b-df8edc990834")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "R7")
 					(unit 1)
@@ -14964,7 +14964,7 @@
 			(uuid "bfc47788-b4ea-4618-8eb3-1790b03a01ed")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "J3")
 					(unit 1)
@@ -15034,7 +15034,7 @@
 			(uuid "68f4c49e-1d54-4e0a-a233-a4ada528b95e")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "D4")
 					(unit 1)
@@ -15104,7 +15104,7 @@
 			(uuid "05ff2241-fcdd-4ebf-a471-711c36729d50")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "R13")
 					(unit 1)
@@ -15208,7 +15208,7 @@
 			(uuid "d5978cd1-59f0-4cfa-8b68-e26ce027dd9a")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "U5")
 					(unit 3)
@@ -15274,7 +15274,7 @@
 			(uuid "3d32ee14-ed6f-48e0-b01c-8be5f8326bfc")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR09")
 					(unit 1)
@@ -15338,7 +15338,7 @@
 			)
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "H6")
 					(unit 1)
@@ -15404,7 +15404,7 @@
 			(uuid "110bd260-01b0-4d86-b642-9cf91ceb3cc6")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR017")
 					(unit 1)
@@ -15508,7 +15508,7 @@
 			(uuid "2f167394-0fb2-45e1-8a3a-0c190ba8d477")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "U5")
 					(unit 1)
@@ -15574,7 +15574,7 @@
 			(uuid "49193e2d-ae6a-4883-ae7c-595a8cabdf61")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR034")
 					(unit 1)
@@ -15640,7 +15640,7 @@
 			(uuid "7fcf687a-a891-4250-adfe-8a73f250f05e")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR02")
 					(unit 1)
@@ -15706,7 +15706,7 @@
 			(uuid "2de390f4-c089-40f3-800a-6f6026b8137a")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR031")
 					(unit 1)
@@ -15772,7 +15772,7 @@
 			(uuid "60b90450-36d2-49cb-bf3a-915cec79f76f")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR011")
 					(unit 1)
@@ -15839,7 +15839,7 @@
 			(uuid "39830666-f82a-4d37-8c38-2c37c1ad7b10")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR050")
 					(unit 1)
@@ -15909,7 +15909,7 @@
 			(uuid "40e46edc-b6f8-4d8d-944b-301cd083b319")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "R15")
 					(unit 1)
@@ -15976,7 +15976,7 @@
 			(uuid "ca4d2458-8bc8-469d-a42f-9369e7683fdf")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR01")
 					(unit 1)
@@ -16043,7 +16043,7 @@
 			(uuid "78431dbc-f053-420b-91d9-f41c8b05cb47")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR08")
 					(unit 1)
@@ -16109,7 +16109,7 @@
 			(uuid "8a6dc3d1-6685-4cf3-a37c-18ad89a09009")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "#PWR058")
 					(unit 1)
@@ -16177,7 +16177,7 @@
 			(uuid "a852f661-5bfd-485a-aebd-639a88e3366b")
 		)
 		(instances
-			(project "can_pcie_water_loop"
+			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "J5")
 					(unit 1)

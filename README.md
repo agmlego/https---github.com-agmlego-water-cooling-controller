@@ -3,9 +3,9 @@ External Water-Cooling Loop Controller
 
 The intent of this project is to monitor and control an external chiller system for a PC water-cooling loop with a liquid-liquid heat exchanger to separate the internal and external loops.
 
-There is a PCIe x1 card inside the PC, tapping into SMBus and +3V3AUX, to monitor the flow, inlet, and outlet temperatures for the internal and external loops, and intercept the front panel power switch to prevent boot or to initiate a shutdown if the loops are not working correctly. The Teensy 3.2 will communicate to the PC, pretending to be a common SMBus device such as those from Winbond or Nuvoton. It also talks with an external board in the chiller over CAN. Onboard WS2811B and an OLED screen show immediate diagnostics. An onboard BME280 lets the Teensy monitor internal case ambient temperature and humidity, to ensure that the chiller does not drop below the local dewpoint to prevent condensation.
+There is a PCIe x1 card inside the PC, tapping into SMBus and +3V3AUX, to monitor the flow, inlet, and outlet temperatures for the internal and external loops, and intercept the front panel power switch to prevent boot or to initiate a shutdown if the loops are not working correctly. The Teensy 3.2 will communicate to the PC, pretending to be a common SMBus device such as those from Winbond or Nuvoton. It also talks with an external board in the chiller over RS232. Onboard WS2811B and an OLED screen show immediate diagnostics. An onboard BME280 lets the Teensy monitor internal case ambient temperature and humidity, to ensure that the chiller does not drop below the local dewpoint to prevent condensation.
 
-The external board listens to CAN and adjusts the chiller's power state and setpoint. It also reports the local BME280 results and has an onboard OLED screen for system status.
+The external board listens to RS232 and adjusts the chiller's power state and setpoint. It also reports the local BME280 results and has an onboard OLED screen for system status.
 
 ## Internal PCIe Card
 
@@ -42,7 +42,7 @@ The external board listens to CAN and adjusts the chiller's power state and setp
 3. Internal loop temperature status
 4. Internal loop flow status
 
-### CAN DE-9
+### RS232 DE-9
 
 0. Chassis earth
 1. N/C
@@ -54,6 +54,10 @@ The external board listens to CAN and adjusts the chiller's power state and setp
 7. CAN_H
 8. N/C
 9. +5V
+
+### Images
+![top](agmlego.github.io/water-cooling-controller/top.png)
+![bottom](agmlego.github.io/water-cooling-controller/bottom.png)
 
 ## Chiller Controller
 

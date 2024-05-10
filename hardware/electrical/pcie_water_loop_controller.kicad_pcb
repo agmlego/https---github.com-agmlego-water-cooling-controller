@@ -304,7 +304,7 @@
 			)
 		)
 		(path "/8ef21fcc-4308-4210-85ff-bcab4026158b")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -0.727064 -0.91)
@@ -513,7 +513,7 @@
 			)
 		)
 		(path "/e378a714-8b5b-41af-bd8b-10e6745bbc3e")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -0.727064 -0.91)
@@ -723,7 +723,7 @@
 			)
 		)
 		(path "/d242c28e-d341-4b1e-86e7-51982b1b6a83")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -0.727064 -0.91)
@@ -933,7 +933,7 @@
 			)
 		)
 		(path "/624a5b43-664d-42e5-a591-9d5bad56e179")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -2.285 1.135)
@@ -1164,7 +1164,7 @@
 			)
 		)
 		(path "/acad62ca-a8fb-43f2-90ec-b1418925348b")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -2.45 3.87)
@@ -1444,7 +1444,7 @@
 			)
 		)
 		(path "/11dbdee0-9be3-4e3d-af9b-a26785a38b89")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -0.727064 0.91)
@@ -1654,7 +1654,7 @@
 			)
 		)
 		(path "/c8056feb-e6c9-4490-97b6-8f64496c8b15")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -0.727064 0.91)
@@ -1864,7 +1864,7 @@
 			)
 		)
 		(path "/412d45ce-06a2-45a7-bf6c-cfaeb0bcc2ea")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -0.727064 0.91)
@@ -2084,7 +2084,7 @@
 			)
 		)
 		(path "/6ad60a76-3ffe-4e3a-bfd6-a00808091c47")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -3.65 -2.75)
@@ -2331,7 +2331,7 @@
 			)
 		)
 		(path "/022a7663-7239-4889-87cb-5d73178b2f58")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 0 2.56)
@@ -2622,7 +2622,7 @@
 			)
 		)
 		(path "/f1bd9791-5802-47bf-bbc2-d4a6e31ef969")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr exclude_from_pos_files)
 		(fp_circle
 			(center 0 0)
@@ -2731,7 +2731,7 @@
 			)
 		)
 		(path "/bbd5250e-9ccf-40b8-a68f-148bb1d8b25c")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -0.727064 -0.91)
@@ -2940,7 +2940,7 @@
 			)
 		)
 		(path "/6ecefc09-d777-43c3-9516-0e26bd4ae4fa")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -0.727064 0.91)
@@ -3149,7 +3149,7 @@
 			)
 		)
 		(path "/1a5ac924-e8ff-4400-994b-6d22205133a8")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -0.727064 0.91)
@@ -3359,7 +3359,7 @@
 			)
 		)
 		(path "/7860796c-f68e-4d32-9cc7-cd0ed25e6f5b")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -0.727064 0.91)
@@ -3569,7 +3569,7 @@
 			)
 		)
 		(path "/45200f42-d8ff-4e0f-b026-c2935b850694")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -2.285 -1.135)
@@ -3801,7 +3801,7 @@
 			)
 		)
 		(path "/6d99a757-f636-483e-b032-610522dd2079")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -0.711252 -0.91)
@@ -4011,7 +4011,7 @@
 			)
 		)
 		(path "/b3f6d43e-a88d-43fb-bcfe-7b1cd6d31e43")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr exclude_from_pos_files)
 		(fp_circle
 			(center 0 0)
@@ -4212,7 +4212,7 @@
 			)
 		)
 		(path "/5f4f9eb5-7718-42e2-b2db-e88326dabd62")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -1.33 -1.33)
@@ -4948,7 +4948,7 @@
 			)
 		)
 		(path "/1a491cad-6a00-43d2-9b3c-5713d48181e9")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr exclude_from_pos_files)
 		(fp_circle
 			(center 0 0)
@@ -5058,7 +5058,7 @@
 			)
 		)
 		(path "/9302e6c2-a7b1-4c8e-a159-a9ed7ef36041")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr exclude_from_pos_files)
 		(fp_circle
 			(center 0 0)
@@ -5168,7 +5168,7 @@
 			)
 		)
 		(path "/ba25ce67-7b75-4eea-9c1c-7f751676625d")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr exclude_from_pos_files)
 		(fp_circle
 			(center 0 0)
@@ -5277,7 +5277,7 @@
 			)
 		)
 		(path "/965c0974-27b6-4a68-ae5a-560cdc12321f")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -3.65 -2.75)
@@ -5535,7 +5535,7 @@
 			)
 		)
 		(path "/3a6f7fc6-6122-44f5-a0ad-fa9c88470c27")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -3.65 -2.75)
@@ -5782,7 +5782,7 @@
 			)
 		)
 		(path "/e69b7d10-2785-4bf6-9d2e-a38ac63debcb")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -0.727064 -0.91)
@@ -5992,7 +5992,7 @@
 			)
 		)
 		(path "/7c748fba-00c6-4dc8-a872-93a84dc505ec")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -0.727064 -0.91)
@@ -6201,7 +6201,7 @@
 			)
 		)
 		(path "/4e7a2db6-fe48-45fd-b857-9f2096c304c6")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 1.6 -1.135)
@@ -6432,7 +6432,7 @@
 			)
 		)
 		(path "/7e302036-bde6-4fc0-a62e-6cfaa58138b3")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 1.6 -1.135)
@@ -6663,7 +6663,7 @@
 			)
 		)
 		(path "/80983191-22bd-41c5-bfbe-d0d21e8947b7")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 0 2.61)
@@ -7012,7 +7012,7 @@
 			)
 		)
 		(path "/d01f53c4-06e8-45c4-a144-2db23dcb65dc")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 1.6 -1.135)
@@ -7244,7 +7244,7 @@
 			)
 		)
 		(path "/e6496add-ac66-47c6-bbbb-9a20d8ec0722")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -2.285 1.135)
@@ -7475,7 +7475,7 @@
 			)
 		)
 		(path "/d7c09a4d-7c90-47a5-9b62-e34d3a052c44")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -0.727064 0.91)
@@ -7695,7 +7695,7 @@
 			)
 		)
 		(path "/c70a4bb2-1f15-46c7-a1fb-58233da97ee6")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -3.65 -2.75)
@@ -7942,7 +7942,7 @@
 			)
 		)
 		(path "/80c6fd0b-7400-4d80-a9ac-41f6edc24c1e")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -0.727064 0.91)
@@ -8152,7 +8152,7 @@
 			)
 		)
 		(path "/fbc8e884-0d66-4c65-819c-02942aac7059")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -0.727064 -0.91)
@@ -8362,7 +8362,7 @@
 			)
 		)
 		(path "/794aa094-f0bf-4bd6-b9be-454cdba806d8")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr exclude_from_pos_files)
 		(fp_circle
 			(center 0 0)
@@ -8472,7 +8472,7 @@
 			)
 		)
 		(path "/5a648030-1481-46ac-ba11-e26072cc5aca")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr exclude_from_pos_files)
 		(fp_circle
 			(center 0 0)
@@ -8674,7 +8674,7 @@
 			)
 		)
 		(path "/ffdd2a42-6775-4515-906a-b2f911033d10")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -1.27 0)
@@ -9218,7 +9218,7 @@
 			)
 		)
 		(path "/4caad1ea-a51d-4488-8f67-dc966c01abfc")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -21.025 -10.48)
@@ -9782,7 +9782,7 @@
 			)
 		)
 		(path "/74962cac-ea99-4602-a13f-33b8186c04e3")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -1.27 0)
@@ -10326,7 +10326,7 @@
 			)
 		)
 		(path "/ef175584-f30e-454d-abd8-59226548fb88")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -0.727064 0.91)
@@ -10537,7 +10537,7 @@
 			)
 		)
 		(path "/09878509-3370-49b6-ba2a-f7d375ce99bf")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -1.27 0)
@@ -11211,7 +11211,7 @@
 			)
 		)
 		(path "/6b1b3151-e041-4833-8f6c-51b5aab639f3")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -1.27 0)
@@ -11755,7 +11755,7 @@
 			)
 		)
 		(path "/b0f01cb6-cf6b-4b38-a0ee-3fa394beee74")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -1.33 -6.41)
@@ -12031,7 +12031,7 @@
 			)
 		)
 		(path "/75813863-3216-43af-9ea7-da8b86f2de51")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -0.711252 0.91)
@@ -12243,7 +12243,7 @@
 			)
 		)
 		(path "/4dffc148-241a-4aa5-8aa1-665b623dd30d")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -1.33 1.33)
@@ -12530,7 +12530,7 @@
 			)
 		)
 		(path "/7f082e96-f774-4ee2-948d-d387ba4a0540")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -1.27 0)
@@ -13204,7 +13204,7 @@
 			)
 		)
 		(path "/563b2e89-c28d-4f39-adb2-1817543ebc4e")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -1.27 0)
@@ -13748,7 +13748,7 @@
 			)
 		)
 		(path "/3d78f1fb-d220-408b-b40a-45ee98d7d54d")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -0.711252 0.91)
@@ -13960,7 +13960,7 @@
 			)
 		)
 		(path "/6b4a49a5-15b3-4f08-bcb7-d77dc84accf6")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -1.33 1.33)
@@ -14248,7 +14248,7 @@
 			)
 		)
 		(path "/2f9f8d02-a95b-4a62-a055-431c4e1f2959")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -0.727064 -0.91)
@@ -14459,7 +14459,7 @@
 			)
 		)
 		(path "/8fc86176-ec4d-406f-bd80-89f2d8f55eaa")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -1.27 0)
@@ -15003,7 +15003,7 @@
 			)
 		)
 		(path "/b4e0a3c6-59ee-4f45-8872-66a534bf5037")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -0.727064 -0.91)
@@ -15216,7 +15216,7 @@
 			)
 		)
 		(path "/dd22f1d1-5e7a-4c05-a585-4127093490e5")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr exclude_from_pos_files)
 		(fp_line
 			(start -0.65 -2.95)
@@ -15761,7 +15761,7 @@
 			)
 		)
 		(path "/3fcac594-9273-41b7-acae-3e733d78d8b9")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 17.78 -8.89)
@@ -16627,7 +16627,7 @@
 			)
 		)
 		(path "/e59eb91f-94e8-42f3-bba1-47e6a08acb81")
-		(sheetfile "can_pcie_water_loop.kicad_sch")
+		(sheetfile "pcie_water_loop_controller.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -1.27 0)
