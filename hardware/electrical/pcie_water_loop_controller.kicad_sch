@@ -5838,6 +5838,12 @@
 		(uuid "624239b1-fdd3-40ee-b0dc-efc7869018b9")
 	)
 	(junction
+		(at 129.54 82.55)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "672b49a7-8ff2-40e2-8d7e-3b6490e5c85d")
+	)
+	(junction
 		(at 82.55 100.33)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5884,6 +5890,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "b8e459d3-d818-49fa-9bfe-52ac7ecc6bc8")
+	)
+	(junction
+		(at 118.11 85.09)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "bf01c626-8bac-43a9-bcd8-311f61d55d53")
 	)
 	(junction
 		(at 60.96 182.88)
@@ -6201,6 +6213,16 @@
 	)
 	(wire
 		(pts
+			(xy 129.54 82.55) (xy 129.54 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0f99fc97-eaf1-4f80-90de-574ae63ef03f")
+	)
+	(wire
+		(pts
 			(xy 144.78 181.61) (xy 132.08 181.61)
 		)
 		(stroke
@@ -6281,16 +6303,6 @@
 	)
 	(wire
 		(pts
-			(xy 146.05 41.91) (xy 138.43 41.91)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "463c0d08-5ed6-4874-900d-0ce8f07b56a9")
-	)
-	(wire
-		(pts
 			(xy 57.15 156.21) (xy 57.15 161.29)
 		)
 		(stroke
@@ -6331,13 +6343,13 @@
 	)
 	(wire
 		(pts
-			(xy 138.43 41.91) (xy 138.43 64.77)
+			(xy 129.54 82.55) (xy 119.38 82.55)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "6b48b7fb-df84-4068-b277-decf19a758d2")
+		(uuid "64e65f6f-d935-4874-891a-7cc666da9e63")
 	)
 	(wire
 		(pts
@@ -6438,16 +6450,6 @@
 			(type default)
 		)
 		(uuid "8bfd4c24-3de3-46bd-b9ed-71636c288f2f")
-	)
-	(wire
-		(pts
-			(xy 152.4 64.77) (xy 138.43 64.77)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8c593541-3be6-4f9f-8cca-d3dbaa53d92b")
 	)
 	(wire
 		(pts
@@ -6721,7 +6723,7 @@
 	)
 	(wire
 		(pts
-			(xy 152.4 82.55) (xy 119.38 82.55)
+			(xy 152.4 82.55) (xy 129.54 82.55)
 		)
 		(stroke
 			(width 0)
@@ -6791,6 +6793,50 @@
 		)
 		(uuid "488febbe-3d88-43d5-a547-2f576856be38")
 	)
+	(label "RGB_DOUT"
+		(at 151.13 77.47 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "5bbb5078-b566-4599-a974-1f57ffbe3e9c")
+	)
+	(label "232RX"
+		(at 63.5 68.58 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a72be62f-b9df-4ec7-97f5-e29e720bb900")
+	)
+	(label "TTLRX"
+		(at 110.49 68.58 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "ba79c729-e657-4788-bc0a-9e4acf7adde0")
+	)
+	(label "RGB_EN"
+		(at 149.86 72.39 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "d9a80b5e-f119-4b82-a5a0-200373c38021")
+	)
 	(label "FP_PWR-"
 		(at 133.35 184.15 0)
 		(fields_autoplaced yes)
@@ -6801,6 +6847,28 @@
 			(justify left bottom)
 		)
 		(uuid "d9c8c21f-c8b5-4488-acc0-818a0ceeef23")
+	)
+	(label "TTLTX"
+		(at 110.49 58.42 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "efa81ef8-ad61-4f11-85ca-32d68b49e531")
+	)
+	(label "232TX"
+		(at 63.5 58.42 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "f2c9f3ee-5fb8-4293-811a-de178e5fb8d9")
 	)
 	(global_label "I2C_SCL"
 		(shape bidirectional)
@@ -7620,6 +7688,76 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:LED_Small")
+		(at 129.54 93.98 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "0788efcf-0749-4169-929a-3d2b23228950")
+		(property "Reference" "D11"
+			(at 132.08 93.2815 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "GREEN"
+			(at 132.08 95.8215 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "LED_SMD:LED_1206_3216Metric"
+			(at 129.54 93.98 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 129.54 93.98 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 129.54 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "20491672-7e32-4e45-90ac-acb57cf359a0")
+		)
+		(pin "2"
+			(uuid "cd9492ad-2f8d-4d55-9f02-d8f7c2ae5001")
+		)
+		(instances
+			(project "pcie_water_loop_controller"
+				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
+					(reference "D11")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector:Conn_01x03_Pin")
 		(at 22.86 182.88 0)
 		(unit 1)
@@ -7788,7 +7926,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_SO:TSSOP-16_4.4x5mm_P0.65mm"
 			(at 88.9 82.55 0)
 			(effects
 				(font
@@ -9388,6 +9526,76 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R_Small_US")
+		(at 129.54 88.9 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "439c2299-a281-474c-af87-91269eb59ee2")
+		(property "Reference" "R9"
+			(at 132.08 88.265 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "220"
+			(at 132.08 90.805 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+			(at 129.54 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 129.54 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 129.54 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d5626d0c-35b2-4f60-b13e-6bda99046b64")
+		)
+		(pin "2"
+			(uuid "2c609e89-1384-46c8-adf6-f4057c5bfe60")
+		)
+		(instances
+			(project "pcie_water_loop_controller"
+				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
+					(reference "R9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:LED_Small")
 		(at 212.09 44.45 90)
 		(unit 1)
@@ -9609,7 +9817,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "CAN"
+		(property "Value" "RS232"
 			(at 19.05 19.05 90)
 			(effects
 				(font
@@ -11108,6 +11316,72 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 129.54 96.52 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "73071d12-d922-4e77-a199-b6a7c261b598")
+		(property "Reference" "#PWR043"
+			(at 129.54 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 129.54 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 129.54 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 129.54 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 129.54 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "baf0777d-4327-4009-924d-49a5c733f3cc")
+		)
+		(instances
+			(project "pcie_water_loop_controller"
+				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
+					(reference "#PWR043")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector:Conn_01x02_Pin")
 		(at 113.03 162.56 0)
 		(unit 1)
@@ -11511,7 +11785,7 @@
 	)
 	(symbol
 		(lib_id "Device:LED_Small")
-		(at 146.05 49.53 90)
+		(at 118.11 92.71 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -11520,7 +11794,7 @@
 		(fields_autoplaced yes)
 		(uuid "7e302036-bde6-4fc0-a62e-6cfaa58138b3")
 		(property "Reference" "D5"
-			(at 148.59 48.8315 90)
+			(at 120.65 92.0115 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11529,7 +11803,7 @@
 			)
 		)
 		(property "Value" "GREEN"
-			(at 148.59 51.3715 90)
+			(at 120.65 94.5515 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11538,7 +11812,7 @@
 			)
 		)
 		(property "Footprint" "LED_SMD:LED_1206_3216Metric"
-			(at 146.05 49.53 90)
+			(at 118.11 92.71 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11547,7 +11821,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 146.05 49.53 90)
+			(at 118.11 92.71 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11556,7 +11830,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 146.05 49.53 0)
+			(at 118.11 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12762,31 +13036,31 @@
 			)
 		)
 		(pin "1"
-			(uuid "bdc2b726-36a4-4d62-9c01-883ec24e0fad")
+			(uuid "bdc2b726-36a4-4d62-9c01-883ec24e0fae")
 		)
 		(pin "2"
-			(uuid "c62b22b8-4fbe-4c32-82ba-c5377bcfa51b")
+			(uuid "c62b22b8-4fbe-4c32-82ba-c5377bcfa51c")
 		)
 		(pin "3"
-			(uuid "adbd7401-b9f2-45d6-bcaf-b9ee3fe4475f")
+			(uuid "adbd7401-b9f2-45d6-bcaf-b9ee3fe44760")
 		)
 		(pin "4"
-			(uuid "792969b8-01af-44b2-a3a0-fd11e9f8ca73")
+			(uuid "792969b8-01af-44b2-a3a0-fd11e9f8ca74")
 		)
 		(pin "5"
-			(uuid "ab6a1207-2bec-4c3d-a494-b8503b293548")
+			(uuid "ab6a1207-2bec-4c3d-a494-b8503b293549")
 		)
 		(pin "6"
-			(uuid "8f558deb-c280-4d0d-8141-6462eac38c38")
+			(uuid "8f558deb-c280-4d0d-8141-6462eac38c39")
 		)
 		(pin "10"
-			(uuid "8beee2d2-7ae1-4d28-9834-496f81c2091a")
+			(uuid "8beee2d2-7ae1-4d28-9834-496f81c2091b")
 		)
 		(pin "8"
-			(uuid "d4d610ae-fa0c-43a4-90fa-406d06c43085")
+			(uuid "d4d610ae-fa0c-43a4-90fa-406d06c43086")
 		)
 		(pin "9"
-			(uuid "6892afeb-a1fa-4a87-8831-609ecd0cae50")
+			(uuid "6892afeb-a1fa-4a87-8831-609ecd0cae51")
 		)
 		(pin "11"
 			(uuid "13be8a42-57a2-4b9f-923b-d3fdc8e950c8")
@@ -12798,10 +13072,10 @@
 			(uuid "c90d6d89-c36b-4ff4-9adb-ce51078abbbc")
 		)
 		(pin "14"
-			(uuid "3e844975-9333-4117-a313-4215e60a54f6")
+			(uuid "3e844975-9333-4117-a313-4215e60a54f7")
 		)
 		(pin "7"
-			(uuid "d5978cd1-59f0-4cfa-8b68-e26ce027dd9a")
+			(uuid "d5978cd1-59f0-4cfa-8b68-e26ce027dd9b")
 		)
 		(instances
 			(project "pcie_water_loop_controller"
@@ -15166,31 +15440,31 @@
 			)
 		)
 		(pin "1"
-			(uuid "bdc2b726-36a4-4d62-9c01-883ec24e0fad")
+			(uuid "bdc2b726-36a4-4d62-9c01-883ec24e0faf")
 		)
 		(pin "2"
-			(uuid "c62b22b8-4fbe-4c32-82ba-c5377bcfa51b")
+			(uuid "c62b22b8-4fbe-4c32-82ba-c5377bcfa51d")
 		)
 		(pin "3"
-			(uuid "adbd7401-b9f2-45d6-bcaf-b9ee3fe4475f")
+			(uuid "adbd7401-b9f2-45d6-bcaf-b9ee3fe44761")
 		)
 		(pin "4"
-			(uuid "792969b8-01af-44b2-a3a0-fd11e9f8ca73")
+			(uuid "792969b8-01af-44b2-a3a0-fd11e9f8ca75")
 		)
 		(pin "5"
-			(uuid "ab6a1207-2bec-4c3d-a494-b8503b293548")
+			(uuid "ab6a1207-2bec-4c3d-a494-b8503b29354a")
 		)
 		(pin "6"
-			(uuid "8f558deb-c280-4d0d-8141-6462eac38c38")
+			(uuid "8f558deb-c280-4d0d-8141-6462eac38c3a")
 		)
 		(pin "10"
-			(uuid "8beee2d2-7ae1-4d28-9834-496f81c2091a")
+			(uuid "8beee2d2-7ae1-4d28-9834-496f81c2091c")
 		)
 		(pin "8"
-			(uuid "d4d610ae-fa0c-43a4-90fa-406d06c43085")
+			(uuid "d4d610ae-fa0c-43a4-90fa-406d06c43087")
 		)
 		(pin "9"
-			(uuid "6892afeb-a1fa-4a87-8831-609ecd0cae50")
+			(uuid "6892afeb-a1fa-4a87-8831-609ecd0cae52")
 		)
 		(pin "11"
 			(uuid "1f8f20e9-2077-4ceb-948e-9d3f7a54cd1d")
@@ -15202,10 +15476,10 @@
 			(uuid "44ea8b0c-9ef7-417f-9430-e4aa07427c1d")
 		)
 		(pin "14"
-			(uuid "3e844975-9333-4117-a313-4215e60a54f6")
+			(uuid "3e844975-9333-4117-a313-4215e60a54f8")
 		)
 		(pin "7"
-			(uuid "d5978cd1-59f0-4cfa-8b68-e26ce027dd9a")
+			(uuid "d5978cd1-59f0-4cfa-8b68-e26ce027dd9c")
 		)
 		(instances
 			(project "pcie_water_loop_controller"
@@ -15218,7 +15492,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 146.05 52.07 0)
+		(at 118.11 95.25 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -15227,7 +15501,7 @@
 		(fields_autoplaced yes)
 		(uuid "efc61a6f-5e7d-49d7-9103-6e35fa1bf7b6")
 		(property "Reference" "#PWR09"
-			(at 146.05 58.42 0)
+			(at 118.11 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15236,7 +15510,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 146.05 57.15 0)
+			(at 118.11 100.33 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15244,7 +15518,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 146.05 52.07 0)
+			(at 118.11 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15253,7 +15527,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 146.05 52.07 0)
+			(at 118.11 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15262,7 +15536,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 146.05 52.07 0)
+			(at 118.11 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15849,7 +16123,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small_US")
-		(at 146.05 44.45 0)
+		(at 118.11 87.63 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -15858,7 +16132,7 @@
 		(fields_autoplaced yes)
 		(uuid "fbc8e884-0d66-4c65-819c-02942aac7059")
 		(property "Reference" "R15"
-			(at 148.59 43.815 0)
+			(at 120.65 86.995 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15867,7 +16141,7 @@
 			)
 		)
 		(property "Value" "220"
-			(at 148.59 46.355 0)
+			(at 120.65 89.535 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15876,7 +16150,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
-			(at 146.05 44.45 0)
+			(at 118.11 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15885,7 +16159,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 146.05 44.45 0)
+			(at 118.11 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15894,7 +16168,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 146.05 44.45 0)
+			(at 118.11 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
