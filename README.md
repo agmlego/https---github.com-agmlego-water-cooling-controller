@@ -14,12 +14,11 @@ The external board listens to RS232 and adjusts the chiller's power state and se
 | 1   | POWER   | GND    |           | Digital ground plane                         |
 | 2   | DIGITAL | D0     | INPUT     | Internal loop flow sensor                    |
 | 3   | DIGITAL | D1     | INPUT     | External loop flow sensor                    |
-| 4   | DIGITAL | D2     | OUTPUT    | CAN standby, active high                     |
-| 5   | CAN     | TX     | OUTPUT    | CAN transmit                                 |
-| 6   | CAN     | RX     | INPUT     | CAN receive                                  |
 | 7   | DIGITAL | D5     | OUTPUT    | Level shifter output enable, active low      |
 | 8   | DIGITAL | D6     | INPUT     | PCIe #PERST status                           |
 | 9   | DIGITAL | D7     | OUTPUT    | WS2811B data                                 |
+| 11  | RS232   | RX     | INPUT     | RS232 receive                                |
+| 12  | RS232   | TX     | OUTPUT    | RS232 transmit                               |
 | 21  | ANALOG  | A0     | INPUT     | External loop outflow temperature, 10k   NTC |
 | 22  | ANALOG  | A1     | INPUT     | External loop inflow temperature, 10k NTC    |
 | 23  | ANALOG  | A2     | INPUT     | Internal loop inflow temperature, 10k   NTC  |
@@ -46,12 +45,12 @@ The external board listens to RS232 and adjusts the chiller's power state and se
 
 0. Chassis earth
 1. N/C
-2. CAN_H
-3. GND
+2. PC RX
+3. PC TX
 4. N/C
-5. Chassis earth
-6. GND
-7. CAN_H
+5. 0VDC
+6. N/C
+7. N/C
 8. N/C
 9. +5V
 
