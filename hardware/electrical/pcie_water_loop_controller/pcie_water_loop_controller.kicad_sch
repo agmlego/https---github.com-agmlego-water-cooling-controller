@@ -9804,73 +9804,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 232.41 156.21 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "4a45ca04-6040-4b66-8844-704c150e0dcd")
-		(property "Reference" "#PWR015"
-			(at 238.76 156.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 236.22 156.845 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" ""
-			(at 232.41 156.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 232.41 156.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 232.41 156.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "15f9823e-652a-4334-945f-3a0e6d1f6e34")
-		)
-		(instances
-			(project "pcie_water_loop_controller"
-				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
-					(reference "#PWR015")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Connector:DE9_Plug_MountingHoles")
 		(at 31.75 25.4 270)
 		(mirror x)
@@ -10208,6 +10141,74 @@
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "U5")
 					(unit 2)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 232.41 153.67 90)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "52657866-ecab-4a5a-a4b7-b51d78fabc3f")
+		(property "Reference" "#PWR015"
+			(at 238.76 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 236.22 153.035 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 232.41 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 232.41 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 232.41 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "899dbd95-8a30-4b5f-b29a-8c1d61e53fd7")
+		)
+		(instances
+			(project "pcie_water_loop_controller"
+				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
+					(reference "#PWR015")
+					(unit 1)
 				)
 			)
 		)
@@ -12236,6 +12237,74 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+3.3V")
+		(at 232.41 156.21 270)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "84bd5506-e3a2-4677-9006-c9d6f5df5f90")
+		(property "Reference" "#PWR013"
+			(at 228.6 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 236.22 155.575 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 232.41 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 232.41 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 232.41 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "2376faab-c54b-429c-852e-19edb4728340")
+		)
+		(instances
+			(project "pcie_water_loop_controller"
+				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
+					(reference "#PWR013")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+5V")
 		(at 21.59 33.02 180)
 		(unit 1)
@@ -12569,73 +12638,6 @@
 			(project "pcie_water_loop_controller"
 				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
 					(reference "J6")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3.3V")
-		(at 232.41 153.67 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "9259404d-979c-4492-8081-db613e36859e")
-		(property "Reference" "#PWR013"
-			(at 228.6 153.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 236.22 154.305 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 232.41 153.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 232.41 153.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 232.41 153.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "cb62ffb2-a722-4dea-a917-f867fca2e8bc")
-		)
-		(instances
-			(project "pcie_water_loop_controller"
-				(path "/dfdcdb61-8e89-40c8-9f6f-aa6d1641b74f"
-					(reference "#PWR013")
 					(unit 1)
 				)
 			)
