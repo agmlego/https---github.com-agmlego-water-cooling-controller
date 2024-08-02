@@ -18249,8 +18249,8 @@
 			(justify left bottom mirror)
 		)
 	)
-	(gr_text "3V3\nGND\nSCL\nSDA"
-		(at 137.7188 97.3836 90)
+	(gr_text "Disp.\nGND\n3V3\nSCL\nSDA"
+		(at 148 93.5 90)
 		(layer "F.SilkS")
 		(uuid "0ba86151-7cfa-4451-b8f5-f8cf275f6e1e")
 		(effects
