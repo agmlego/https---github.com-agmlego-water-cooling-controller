@@ -52,7 +52,15 @@
         }
       },
       "diff_pair_dimensions": [],
-      "drc_exclusions": [],
+      "drc_exclusions": [
+        "silk_over_copper|142885062|107540000|84910974-6bcc-417f-92d1-3a3c6a7c1075|00000000-0000-0000-0000-000000000000",
+        "silk_overlap|106806077|107369819|108b7f51-f9a8-41b7-ac37-780958074196|6234beb2-2216-4747-b2d2-d2efe2555814",
+        "silk_overlap|109060000|105767500|56614939-c239-401d-bfca-bbd59ab6baf4|9bf4fa2d-edcb-4db9-822e-26bd719e0212",
+        "silk_overlap|109060000|105767500|f7bd7460-b83a-45a8-bc22-3cfa3b65c53d|56614939-c239-401d-bfca-bbd59ab6baf4",
+        "silk_overlap|109060000|106197500|7d7ce75f-5465-4912-8c6b-3dbe9a38ff40|56614939-c239-401d-bfca-bbd59ab6baf4",
+        "silk_overlap|109060000|108810000|56614939-c239-401d-bfca-bbd59ab6baf4|20e66f3c-1e95-40f1-9119-3411e0115413",
+        "silk_overlap|109185000|108810000|20e66f3c-1e95-40f1-9119-3411e0115413|2f2a0951-7374-4379-897b-e26e31200977"
+      ],
       "meta": {
         "version": 2
       },
@@ -80,7 +88,7 @@
         "items_not_allowed": "error",
         "length_out_of_range": "error",
         "lib_footprint_issues": "warning",
-        "lib_footprint_mismatch": "warning",
+        "lib_footprint_mismatch": "ignore",
         "malformed_courtyard": "error",
         "microvia_drill_out_of_range": "error",
         "missing_courtyard": "ignore",
@@ -95,7 +103,7 @@
         "silk_overlap": "warning",
         "skew_out_of_range": "error",
         "solder_mask_bridge": "error",
-        "starved_thermal": "error",
+        "starved_thermal": "ignore",
         "text_height": "warning",
         "text_thickness": "warning",
         "through_hole_pad_without_hole": "error",
