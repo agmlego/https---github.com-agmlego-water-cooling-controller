@@ -60,55 +60,47 @@ The external board listens to RS232 and adjusts the chiller's power state and se
 
 ## Chiller Controller
 
-| Pin | Type    | Signal | Direction | Purpose                            |
-| --- | ------- | ------ | --------- | ---------------------------------- |
-| 1   | POWER   | GND    |           | Digital ground                     |
-| 4   | 1-WIRE  | D2     | BIDI      | DS18B20 bus                        |
-| 5   | CAN     | TX     | OUTPUT    | CAN transmit                       |
-| 6   | CAN     | RX     | INPUT     | CAN receive                        |
-| 7   | DIGITAL | D5     | INPUT     | Top fan RPM sensor                 |
-| 8   | DIGITAL | D6     | INPUT     | Bottom fan RPM sensor              |
-| 10  | DIGITAL | D8     | INPUT     | Flow switch                        |
-| 11  | DIGITAL | D9     | OUTPUT    | Pump relay                         |
-| 12  | DIGITAL | D10    | OUTPUT    | Expansion valve relay              |
-| 13  | DIGITAL | D11    | OUTPUT    | Compressor relay                   |
-| 14  | DIGITAL | D12    | OUTPUT    | Status lights/buzzer relay         |
-| 21  | ANALOG  | A0     | INPUT     | Filter check diff. pressure sensor |
-| 23  | DIGITAL | D16    | INPUT     | VL53L0X XSHUT input                |
-| 24  | DIGITAL | D17    | INPUT     | VL53L0X GPIO1 input                |
-| 25  | I2C     | SDA0   | BIDI      | Local I2C data                     |
-| 26  | I2C     | SCL0   | BIDI      | Local I2C clock                    |
-| 27  | DIGITAL | D20    | OUTPUT    | Fan PWM                            |
-| 31  | POWER   | 3V3    |           | 3.3V output                        |
-| 32  | POWER   | AGND   |           | Analog ground                      |
-| 33  | POWER   | 5V     |           | 5V input from CAN                  |
+| Pin | Type    | Signal | Direction | Purpose                                      |
+| --- | ------- | ------ | --------- | -------------------------------------------- |
+| 1   | POWER   | GND    |           | Digital ground                               |
+| 2   | RS232   | RX     | INPUT     | RS232 receive                                |
+| 3   | RS232   | TX     | OUTPUT    | RS232 transmit                               |
+| 4   | 1-WIRE  | D2     | BIDI      | DS18B20 bus                                  |
+| 6   | DIGITAL | D4     | OUTPUT    | Expansion valve relay                        |
+| 7   | DIGITAL | D5     | OUTPUT    | Compressor relay                             |
+| 8   | DIGITAL | D6     | OUTPUT    | Pump relay                                   |
+| 9   | DIGITAL | D7     | OUTPUT    | Status lights/buzzer relay                   |
+| 10  | DIGITAL | D8     | OUTPUT    | [Fan PWM](#nf-a14-control)                   |
+| 11  | DIGITAL | D9     | INPUT     | Bottom fan RPM sensor                        |
+| 12  | DIGITAL | D10    | INPUT     | Top fan RPM sensor                           |
+| 13  | DIGITAL | D11    | INPUT     | Flow switch, active low                      |
+| 21  | ANALOG  | A0     | INPUT     | Filter check diff. pressure sensor           |
+| 22  | ANALOG  | A1     | INPUT     | Reservoir eTape R<sub>sense</sub> 400-2000Ω  |
+| 23  | ANALOG  | A2     | INPUT     | Reservoir eTape R<sub>ref</sub> 2000Ω        |
+| 25  | I2C     | SDA0   | BIDI      | Local I2C data                               |
+| 26  | I2C     | SCL0   | BIDI      | Local I2C clock                              |
+| 28  | DIGITAL | D21    | INPUT     | Encoder switch                               |
+| 29  | DIGITAL | D22    | INPUT     | Encoder quadrature A                         |
+| 30  | DIGITAL | D23    | INPUT     | Encoder quadrature B                         |
+| 31  | POWER   | 3V3    |           | 3.3V output                                  |
+| 32  | POWER   | AGND   |           | Analog ground                                |
+| 33  | POWER   | 5V     |           | 5V input from CAN                            |
 
 ### JST-XH Connectors
 
-#### CAN
+#### RS232
 | Pin | Type  | Signal | Direction | Purpose           |
 | --- | ----- | ------ | --------- | ----------------- |
-| 1   | N/C   | N/C    |           |                   |
-| 2   | CAN   | CAN H  | BIDI      | CAN Bus High      |
-| 3   | CAN   | CAN L  | BIDI      | CAN Bus Low       |
-| 4   | POWER | GND    |           | Digital ground    |
-| 5   | POWER | 5V     |           | 5V from PCIe card |
-
-#### I2C
-| Pin | Type    | Signal | Direction | Purpose             |
-| --- | ------- | ------ | --------- | ------------------- |
-| 1   | POWER   | 3V3    |           | 3.3V output         |
-| 2   | POWER   | GND    |           | Digital ground      |
-| 3   | I2C     | SCL0   | BIDI      | Local I2C clock     |
-| 4   | I2C     | SDA0   | BIDI      | Local I2C data      |
-| 5   | DIGITAL | D17    | INPUT     | VL53L0X GPIO1 input |
-| 6   | DIGITAL | D16    | INPUT     | VL53L0X XSHUT input |
+| 1   | POWER | 5V     |           | 5V from PCIe card |
+| 2   | POWER | GND    |           | Digital ground    |
+| 3   | RS232 | TX     | OUTPUT    | RS232 transmit    |
+| 4   | RS232 | RX     | INPUT     | RS232 receive     |
 
 #### Flow
-| Pin | Type    | Signal | Direction | Purpose     |
-| --- | ------- | ------ | --------- | ----------- |
-| 1   | POWER   | 3V3    |           | 3.3V output |
-| 2   | DIGITAL | D8     | INPUT     | Flow switch |
+| Pin | Type    | Signal | Direction | Purpose        |
+| --- | ------- | ------ | --------- | -------------- |
+| 1   | DIGITAL | D11    | INPUT     | Flow switch    |
+| 2   | POWER   | GND    |           | Digital ground |
 
 #### DS18B20 One-Wire
 | Pin | Type   | Signal | Direction | Purpose        |
@@ -121,31 +113,39 @@ The external board listens to RS232 and adjusts the chiller's power state and se
 | Pin | Type   | Signal | Direction | Purpose                            |
 | --- | ------ | ------ | --------- | ---------------------------------- |
 | 1   | POWER  | 3V3    |           | 3.3V output                        |
-| 2   | POWER  | GND    |           | Digital ground                     |
+| 2   | POWER  | AGND   |           | Analog ground                      |
 | 3   | ANALOG | A0     | INPUT     | Filter check diff. pressure sensor |
+
+#### Reservoir Level eTape
+| Pin | Type   | Signal | Direction | Purpose                      |
+| --- | ------ | ------ | --------- | ---------------------------- |
+| 1   | ANALOG | A1     | INPUT     | R<sub>sense</sub> 400-2000Ω  |
+| 2   | ANALOG | A2     | INPUT     | R<sub>ref</sub> 2000Ω        |
+| 3   | POWER  | AGND   |           | Analog ground                |
+| 4   | POWER  | AGND   |           | Analog ground                |
 
 #### Fans
 | Pin | Type    | Signal | Direction | Purpose               |
 | --- | ------- | ------ | --------- | --------------------- |
-| 1   | DIGITAL | D0     | INPUT     | Top fan RPM sensor    |
-| 2   | DIGITAL | D1     | INPUT     | Bottom fan RPM sensor |
-| 3   | DIGITAL | D5     | OUTPUT    | Fan PWM               |
+| 1   | DIGITAL | D10    | INPUT     | Top fan RPM sensor    |
+| 2   | DIGITAL | D9     | INPUT     | Bottom fan RPM sensor |
+| 3   | DIGITAL | D8     | OUTPUT    | Fan PWM               |
 
 #### Dual-Relay Module
 | Pin | Type    | Signal | Direction | Purpose                    |
 | --- | ------- | ------ | --------- | -------------------------- |
 | 1   | POWER   | GND    |           | Digital ground             |
-| 2   | DIGITAL | D11    | OUTPUT    | Status lights/buzzer relay |
-| 3   | DIGITAL | D9     | OUTPUT    | Pump relay                 |
+| 2   | DIGITAL | D7     | OUTPUT    | Status lights/buzzer relay |
+| 3   | DIGITAL | D6     | OUTPUT    | Pump relay                 |
 | 4   | POWER   | 5V     |           | 5V input from CAN          |
 
 #### SSRs
 | Pin | Type    | Signal | Direction | Purpose               |
 | --- | ------- | ------ | --------- | --------------------- |
 | 1   | POWER   | GND    |           | Digital ground        |
-| 2   | DIGITAL | D11    | OUTPUT    | Compressor relay      |
+| 2   | DIGITAL | D5     | OUTPUT    | Compressor relay      |
 | 3   | POWER   | GND    |           | Digital ground        |
-| 4   | DIGITAL | D10    | OUTPUT    | Expansion valve relay |
+| 4   | DIGITAL | D4     | OUTPUT    | Expansion valve relay |
 
 ### NF-A14 Control
 * PWM: 40μs period, 5Vpp
