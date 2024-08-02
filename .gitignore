@@ -1,6 +1,7 @@
 *-backups/
 _autosave*
 \#auto_saved_files\#
+*.lck
 OldVersions/
 Production/
 .venv/
