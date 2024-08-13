@@ -375,7 +375,7 @@
 		(descr "Resistor SMD 1206 (3216 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "resistor")
 		(property "Reference" "R9"
-			(at 0 -1.82 360)
+			(at 0 -1.82 0)
 			(layer "F.SilkS")
 			(uuid "70e4e2db-8d4d-4143-9971-ad15987e7cf8")
 			(effects
@@ -386,7 +386,7 @@
 			)
 		)
 		(property "Value" "10k"
-			(at 0 1.82 360)
+			(at 0 1.82 0)
 			(layer "F.Fab")
 			(uuid "2c63af91-bffd-4492-b856-82abdb51d243")
 			(effects
@@ -541,7 +541,7 @@
 			(uuid "988a44b9-5811-4d0f-8f0a-bae62aa7e38c")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(uuid "ddbfa6c9-e8ae-4acb-b566-4e8264db907c")
 			(effects
@@ -588,7 +588,7 @@
 		(descr "Resistor SMD 1206 (3216 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "resistor")
 		(property "Reference" "R8"
-			(at 0 2 360)
+			(at 0 2 0)
 			(layer "F.SilkS")
 			(uuid "296a60c4-3e4d-4344-806c-bf8e8e79d8ce")
 			(effects
@@ -599,7 +599,7 @@
 			)
 		)
 		(property "Value" "10k"
-			(at 0 1.82 360)
+			(at 0 1.82 0)
 			(layer "F.Fab")
 			(uuid "878568e6-3360-40f1-aaf1-3b046a895db1")
 			(effects
@@ -754,7 +754,7 @@
 			(uuid "87a79ecc-968b-4531-bf2f-376c2e41c54a")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(uuid "42f2324a-e2cc-4ffc-9806-179d53c653bf")
 			(effects
@@ -1981,7 +1981,7 @@
 		(descr "Capacitor SMD 1206 (3216 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "capacitor")
 		(property "Reference" "C2"
-			(at 0 -1.85 360)
+			(at 0 -1.85 0)
 			(layer "F.SilkS")
 			(uuid "92d4904a-d78f-476b-954b-e6b39c7bc019")
 			(effects
@@ -1992,7 +1992,7 @@
 			)
 		)
 		(property "Value" "0.1uF"
-			(at 0 1.85 360)
+			(at 0 1.85 0)
 			(layer "F.Fab")
 			(uuid "febd6275-4ffb-4a6e-af30-b0f69f02c756")
 			(effects
@@ -2147,7 +2147,7 @@
 			(uuid "a799bcfe-2ff0-4146-bd07-2eac14fb199d")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(uuid "f47e4510-a17f-4458-9db2-d588542a3332")
 			(effects
@@ -3260,7 +3260,7 @@
 		(descr "Capacitor SMD 1206 (3216 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "capacitor")
 		(property "Reference" "C3"
-			(at 0 -1.85 360)
+			(at 0 -1.85 0)
 			(layer "F.SilkS")
 			(uuid "bf6a9f01-e934-4faf-a1f1-e9bc6c09e3a2")
 			(effects
@@ -3271,7 +3271,7 @@
 			)
 		)
 		(property "Value" "0.1uF"
-			(at 0 1.85 360)
+			(at 0 1.85 0)
 			(layer "F.Fab")
 			(uuid "468491ea-861d-42fc-9337-792acf3c07df")
 			(effects
@@ -3426,7 +3426,7 @@
 			(uuid "5b2667ac-f94f-4306-8b30-71a17818ae07")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(uuid "7fbad4ca-c1f1-4abc-8659-87cea8b895d3")
 			(effects
@@ -4014,7 +4014,7 @@
 		(descr "JST XH series connector, B3B-XH-A (http://www.jst-mfg.com/product/pdf/eng/eXH.pdf), generated with kicad-footprint-generator")
 		(tags "connector JST XH vertical")
 		(property "Reference" "J7"
-			(at -4 -0.025 360)
+			(at -4 -0.025 0)
 			(layer "B.SilkS")
 			(hide yes)
 			(uuid "ba5d75b1-5ffd-415c-9e9b-b86a805af8f8")
@@ -4490,7 +4490,7 @@
 		(descr "Capacitor SMD 1206 (3216 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "capacitor")
 		(property "Reference" "C1"
-			(at 0 1.85 360)
+			(at 0 1.85 0)
 			(layer "B.SilkS")
 			(uuid "0d169c34-ec83-4197-a5a6-b79302ad747c")
 			(effects
@@ -4502,7 +4502,7 @@
 			)
 		)
 		(property "Value" "0.1uF"
-			(at 0 -1.85 360)
+			(at 0 -1.85 0)
 			(layer "B.Fab")
 			(uuid "2f5f664e-0fb2-465b-a607-ee69993e2e80")
 			(effects
@@ -4661,7 +4661,7 @@
 			(uuid "3ee7b680-0f3c-4ab5-8006-ec0e54ade8ba")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "B.Fab")
 			(uuid "fd1849ca-769b-47b0-9cc2-e34fe6c161d5")
 			(effects
@@ -4709,7 +4709,7 @@
 		(descr "Capacitor SMD 1206 (3216 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "capacitor")
 		(property "Reference" "C5"
-			(at 0 1.85 360)
+			(at 0 1.85 0)
 			(layer "B.SilkS")
 			(uuid "f737bb26-916d-4444-9848-41c5d88fde41")
 			(effects
@@ -4721,7 +4721,7 @@
 			)
 		)
 		(property "Value" "0.1uF"
-			(at 0 -1.85 360)
+			(at 0 -1.85 0)
 			(layer "B.Fab")
 			(uuid "37309f64-6fa8-456e-8945-cf4959d7acf1")
 			(effects
@@ -4880,7 +4880,7 @@
 			(uuid "de661182-7e14-49b7-8290-9f34aaf26bab")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "B.Fab")
 			(uuid "96713dfc-1f07-4b42-8d08-f21cf9c321f6")
 			(effects
@@ -8272,7 +8272,7 @@
 		(descr "JST XH series connector, B4B-XH-A (http://www.jst-mfg.com/product/pdf/eng/eXH.pdf), generated with kicad-footprint-generator")
 		(tags "connector JST XH vertical")
 		(property "Reference" "J9"
-			(at 3.75 3.55 360)
+			(at 3.75 3.55 0)
 			(layer "B.SilkS")
 			(hide yes)
 			(uuid "df0cf80a-4bee-4683-b58e-6bcad503b2c5")
@@ -8285,7 +8285,7 @@
 			)
 		)
 		(property "Value" "Relays"
-			(at 3.75 -4.6 360)
+			(at 3.75 -4.6 0)
 			(layer "B.SilkS")
 			(uuid "a0445091-7c41-4f6e-a18d-630162e59459")
 			(effects
@@ -8684,7 +8684,7 @@
 			(uuid "a2d28ec5-a78e-4de0-a047-fd4c6eb18071")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 3.75 -2.7 360)
+			(at 3.75 -2.7 0)
 			(layer "B.Fab")
 			(uuid "044a2ab1-a384-496b-8a2a-d0cca9913405")
 			(effects
@@ -10198,7 +10198,7 @@
 		(descr "JST XH series connector, B3B-XH-A (http://www.jst-mfg.com/product/pdf/eng/eXH.pdf), generated with kicad-footprint-generator")
 		(tags "connector JST XH vertical")
 		(property "Reference" "J8"
-			(at -4 0 360)
+			(at -4 0 0)
 			(layer "B.SilkS")
 			(hide yes)
 			(uuid "fa471a9e-46d3-4f7e-83fa-dccfbb101f95")
@@ -10674,7 +10674,7 @@
 		(descr "JST XH series connector, B2B-XH-A (http://www.jst-mfg.com/product/pdf/eng/eXH.pdf), generated with kicad-footprint-generator")
 		(tags "connector JST XH vertical")
 		(property "Reference" "J3"
-			(at 1.25 3.55 360)
+			(at 1.25 3.55 0)
 			(layer "B.SilkS")
 			(hide yes)
 			(uuid "a9684dbd-4208-49d0-b454-692e5551a462")
@@ -10687,7 +10687,7 @@
 			)
 		)
 		(property "Value" "Flo"
-			(at 1.25 -4.6 360)
+			(at 1.25 -4.6 0)
 			(layer "B.SilkS")
 			(uuid "561cd6f1-29db-4a1b-937c-b9ae1ecd1c6f")
 			(effects
@@ -11086,7 +11086,7 @@
 			(uuid "aa2cee5e-5566-4a84-a511-7f5be9af8872")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 1.25 -2.7 360)
+			(at 1.25 -2.7 0)
 			(layer "B.Fab")
 			(uuid "3dae6103-ec3b-4d0f-a7ba-4fad6fc81c3c")
 			(effects
