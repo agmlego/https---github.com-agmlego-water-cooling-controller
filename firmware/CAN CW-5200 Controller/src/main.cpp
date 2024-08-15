@@ -6,9 +6,11 @@
 #include <RunningAverage.h>
 #include <OneWire.h>
 #include <DallasTemperature.h>
+#include <SerialTransfer.h>
 
 #include "error_codes.h"
 #include "settings.h"
+#include "comms.h"
 
 #define SER_RX 0          // Serial Rx
 #define SER_TX 1          // Serial Tx
@@ -30,13 +32,12 @@
 #define RES_LEVEL A9      // Analog input for eTape Rsense
 #define RES_REF A8        // Analog input for eTape Rref
 
+struct_readings readings;
+
 RunningAverage filterRA(100);
 
 #define FAN_SAMPLING_TIME 1000
 const float HZ_TO_RPM = 30.0;
-uint32_t top_fan_reading = 0;
-uint32_t bottom_fan_reading = 0;
-uint8_t fan_pwm_level = 0;
 FreqMeasureMulti top_fan;
 FreqMeasureMulti bottom_fan;
 RunningAverage topRA(10);
@@ -46,8 +47,6 @@ RunningAverage bottomRA(10);
 Adafruit_BME280 bme; // use I2C interface
 Adafruit_Sensor *bme_temp = bme.getTemperatureSensor();
 Adafruit_Sensor *bme_humidity = bme.getHumiditySensor();
-float case_temperature_reading = 0;
-float case_humidity_reading = 0;
 
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
 #define SCREEN_HEIGHT 64 // OLED display height, in pixels
@@ -67,21 +66,18 @@ OneWire oneWire(ONE_WIRE);
 DallasTemperature sensors(&oneWire);
 DeviceAddress outside_temp = {0x28, 0x4E, 0x6A, 0x45, 0x92, 0x17, 0x02, 0xEC};
 DeviceAddress reservoir_temp = {0x28, 0xFF, 0x02, 0x5D, 0xC1, 0x17, 0x05, 0xCB};
-float reservoir_temp_reading = 0.0;
-float outside_temp_reading = 0.0;
-float reservoir_setpoint = 20.0;
 
 uint32_t last_compressor = 0;
 uint32_t last_valve = 0;
-uint32_t compressor_time = 0;
-uint32_t valve_time = 0;
 
-uint16_t error_code = 0;
 bool running_state = true;
 uint32_t reading_time = 0;
 uint8_t reading_state = 0;
 
 struct_settings *settings;
+
+SerialTransfer telemetry;
+uint16_t txSize = 0;
 
 void runCoolingCycle();
 void setError(uint16_t);
@@ -119,7 +115,10 @@ void setup()
     bottomRA.clear();
     pinMode(FAN_PWM, OUTPUT);
     analogWriteFrequency(FAN_PWM, 25000);
-    analogWrite(FAN_PWM, fan_pwm_level);
+    readings.chassis.fan.pwm = 0;
+    analogWrite(FAN_PWM, readings.chassis.fan.pwm);
+
+    readings.reservoir.setpoint = 20.0;
 
     Serial.begin(9600);
     while (!Serial && millis() < 5000)
@@ -131,7 +130,7 @@ void setup()
     if (!bme.begin(BME_ADDRESS))
     {
         setError(CASE_BME280_NO_CONNECT);
-        Serial.printf("Error %04X: No connect to BME!\n", error_code);
+        Serial.printf("Error %04X: No connect to BME!\n", readings.error.code);
     }
     else
     {
@@ -143,7 +142,7 @@ void setup()
     if (!display.begin(SSD1306_SWITCHCAPVCC, SCREEN_ADDRESS))
     {
         setError(CASE_DISPLAY_NO_CONNECT);
-        Serial.printf("Error %04X: No connect to display!\n", error_code);
+        Serial.printf("Error %04X: No connect to display!\n", readings.error.code);
     }
     else
     {
@@ -157,7 +156,7 @@ void setup()
     if (!sensors.getAddress(outside_temp, 0))
     {
         setError(CASE_NO_OUTSIDE_DS18B20_ADDRESS);
-        Serial.printf("Error %04X: Unable to find address for outside_temp\n", error_code);
+        Serial.printf("Error %04X: Unable to find address for outside_temp\n", readings.error.code);
     }
     else
     {
@@ -170,7 +169,7 @@ void setup()
     if (!sensors.getAddress(reservoir_temp, 1))
     {
         setError(RESERVOIR_NO_DS18B20_ADDRESS);
-        Serial.printf("Error %04X: Unable to find address for reservoir_temp\n", error_code);
+        Serial.printf("Error %04X: Unable to find address for reservoir_temp\n", readings.error.code);
     }
     else
     {
@@ -179,6 +178,12 @@ void setup()
         Serial.println();
         sensors.setResolution(reservoir_temp, TEMPERATURE_PRECISION);
     }
+
+    /*
+     *  Set up telemetry link
+     */
+    Serial1.begin(19200);
+    telemetry.begin(Serial1);
     delay(5000);
 }
 
@@ -190,12 +195,12 @@ void loop()
      */
     resLvlRA.addValue(analogRead(RES_LEVEL));
     resRefRA.addValue(analogRead(RES_REF));
-    // reservoir_volume = (reservoir_height - lox.readRange()) * reservoir_area;
-    // resLvlRA.addValue(reservoir_volume);
-    if (resLvlRA.getAverage() < settings->reservoir_volume_low_limit)
+    readings.reservoir.level_sense = resLvlRA.getAverage();
+    readings.reservoir.level_ref = resRefRA.getAverage();
+    if (readings.reservoir.level_sense < settings->reservoir_volume_low_limit)
     {
         setError(RESERVOIR_LEVEL_LOW);
-        Serial.printf("Error %04X: Reservoir level too low! %dmL < %dmL\n", error_code, (int)resLvlRA.getAverage(), settings->reservoir_volume_low_limit);
+        Serial.printf("Error %04X: Reservoir level too low! %dmL < %dmL\n", readings.error.code, (int)readings.reservoir.level_sense, settings->reservoir_volume_low_limit);
     }
 
     /*
@@ -204,65 +209,65 @@ void loop()
     sensors_event_t temp_event, humidity_event;
     bme_temp->getEvent(&temp_event);
     bme_humidity->getEvent(&humidity_event);
-    case_temperature_reading = temp_event.temperature;
-    case_humidity_reading = humidity_event.relative_humidity;
-    if (case_temperature_reading > settings->case_temperature_high_limit)
+    readings.chassis.inside_temperature = temp_event.temperature;
+    readings.chassis.humidity = humidity_event.relative_humidity;
+    if (readings.chassis.inside_temperature > settings->case_temperature_high_limit)
     {
         setError(CASE_TEMP_TOO_HIGH);
-        Serial.printf("Error %04X: Case temperature too high! %dC > %dC\n", error_code, case_temperature_reading, settings->case_temperature_high_limit);
+        Serial.printf("Error %04X: Case temperature too high! %dC > %dC\n", readings.error.code, readings.chassis.inside_temperature, settings->case_temperature_high_limit);
     }
-    if (case_temperature_reading < settings->case_temperature_low_limit)
+    if (readings.chassis.inside_temperature < settings->case_temperature_low_limit)
     {
         setError(CASE_TEMP_TOO_LOW);
-        Serial.printf("Error %04X: Case temperature too low! %dC < %dC\n", error_code, case_temperature_reading, settings->case_temperature_low_limit);
+        Serial.printf("Error %04X: Case temperature too low! %dC < %dC\n", readings.error.code, readings.chassis.inside_temperature, settings->case_temperature_low_limit);
     }
-    if (case_humidity_reading > settings->case_humidity_high_limit)
+    if (readings.chassis.humidity > settings->case_humidity_high_limit)
     {
         setError(CASE_HUMIDITY_TOO_HIGH);
-        Serial.printf("Error %04X: Case humidity too high! %d%% > %d%%\n", error_code, case_humidity_reading, settings->case_humidity_high_limit);
+        Serial.printf("Error %04X: Case humidity too high! %d%% > %d%%\n", readings.error.code, readings.chassis.humidity, settings->case_humidity_high_limit);
     }
 
     /*
      *   Reservoir Temp Measurement
      */
     sensors.requestTemperatures();
-    reservoir_temp_reading = sensors.getTempC(reservoir_temp);
-    if (reservoir_temp_reading == DEVICE_DISCONNECTED_C)
+    readings.reservoir.temperature = sensors.getTempC(reservoir_temp);
+    if (readings.reservoir.temperature == DEVICE_DISCONNECTED_C)
     {
         setError(RESERVOIR_NO_DS18B20_READ);
-        Serial.printf("Error %04X: Could not read reservoir temperature data\n", error_code);
-        reservoir_temp_reading = 0.0;
+        Serial.printf("Error %04X: Could not read reservoir temperature data\n", readings.error.code);
+        readings.reservoir.temperature = 0.0;
     }
-    if (reservoir_temp_reading > settings->reservoir_temp_high_limit)
+    if (readings.reservoir.temperature > settings->reservoir_temp_high_limit)
     {
         setError(RESERVOIR_TEMP_TOO_HIGH);
-        Serial.printf("Error %04X: Reservoir temperature too high! %dC > %dC\n", error_code, reservoir_temp_reading, settings->reservoir_temp_high_limit);
+        Serial.printf("Error %04X: Reservoir temperature too high! %dC > %dC\n", readings.error.code, readings.reservoir.temperature, settings->reservoir_temp_high_limit);
     }
-    if (reservoir_temp_reading < settings->reservoir_temp_low_limit)
+    if (readings.reservoir.temperature < settings->reservoir_temp_low_limit)
     {
         setError(RESERVOIR_TEMP_TOO_LOW);
-        Serial.printf("Error %04X: Reservoir temperature too low! %dC < %dC\n", error_code, reservoir_temp_reading, settings->reservoir_temp_low_limit);
+        Serial.printf("Error %04X: Reservoir temperature too low! %dC < %dC\n", readings.error.code, readings.reservoir.temperature, settings->reservoir_temp_low_limit);
     }
 
     /*
      *   Outside Temp Measurement
      */
-    outside_temp_reading = sensors.getTempC(outside_temp);
-    if (outside_temp_reading == DEVICE_DISCONNECTED_C)
+    readings.chassis.outside_temperature = sensors.getTempC(outside_temp);
+    if (readings.chassis.outside_temperature == DEVICE_DISCONNECTED_C)
     {
         setError(CASE_NO_OUTSIDE_DS18B20_READ);
-        Serial.printf("Error %04X: Could not read outside temperature data\n", error_code);
-        outside_temp_reading = 0.0;
+        Serial.printf("Error %04X: Could not read outside temperature data\n", readings.error.code);
+        readings.chassis.outside_temperature = 0.0;
     }
-    if (outside_temp_reading > settings->outside_temp_high_limit)
+    if (readings.chassis.outside_temperature > settings->outside_temp_high_limit)
     {
         setError(CASE_OUTSIDE_TEMP_TOO_HIGH);
-        Serial.printf("Error %04X: Outside temperature too high! %dC > %dC\n", error_code, outside_temp_reading, settings->outside_temp_high_limit);
+        Serial.printf("Error %04X: Outside temperature too high! %dC > %dC\n", readings.error.code, readings.chassis.outside_temperature, settings->outside_temp_high_limit);
     }
-    if (outside_temp_reading < settings->outside_temp_low_limit)
+    if (readings.chassis.outside_temperature < settings->outside_temp_low_limit)
     {
         setError(CASE_OUTSIDE_TEMP_TOO_LOW);
-        Serial.printf("Error %04X: Outside temperature too low! %dC < %dC\n", error_code, outside_temp_reading, settings->outside_temp_low_limit);
+        Serial.printf("Error %04X: Outside temperature too low! %dC < %dC\n", readings.error.code, readings.chassis.outside_temperature, settings->outside_temp_low_limit);
     }
 
     /*
@@ -280,29 +285,29 @@ void loop()
     {
         if (topRA.getCount() > 0)
         {
-            top_fan_reading = HZ_TO_RPM * top_fan.countToFrequency(topRA.getAverage());
+            readings.chassis.fan.top_tach = HZ_TO_RPM * top_fan.countToFrequency(topRA.getAverage());
         }
         else
         {
-            top_fan_reading = 0;
-            if (fan_pwm_level > 0)
+            readings.chassis.fan.top_tach = 0;
+            if (readings.chassis.fan.pwm > 0)
             {
                 setError(CASE_TOP_FAN_LOW_RPM);
-                Serial.printf("Error %04X: Top fan RPM too low!\n", error_code);
+                Serial.printf("Error %04X: Top fan RPM too low!\n", readings.error.code);
             }
         }
 
         if (bottomRA.getCount() > 0)
         {
-            bottom_fan_reading = HZ_TO_RPM * bottom_fan.countToFrequency(bottomRA.getAverage());
+            readings.chassis.fan.bottom_tach = HZ_TO_RPM * bottom_fan.countToFrequency(bottomRA.getAverage());
         }
         else
         {
-            bottom_fan_reading = 0;
-            if (fan_pwm_level > 0)
+            readings.chassis.fan.bottom_tach = 0;
+            if (readings.chassis.fan.pwm > 0)
             {
                 setError(CASE_BOTTOM_FAN_LOW_RPM);
-                Serial.printf("Error %04X: Bottom fan RPM too low!\n", error_code);
+                Serial.printf("Error %04X: Bottom fan RPM too low!\n", readings.error.code);
             }
         }
     }
@@ -311,13 +316,19 @@ void loop()
      *   Filter Delta-P Measurement
      */
     filterRA.addValue(analogRead(FILTER_P));
+    readings.chassis.filter_dp = filterRA.getAverage();
     if (filterRA.getAverage() > settings->filter_high_limit)
     {
         setError(CASE_FILTERS_CLOGGED);
-        Serial.printf("Error %04X: Filter delta-P too high! %d > %d\n", error_code, (int)filterRA.getAverage(), settings->filter_high_limit);
+        Serial.printf("Error %04X: Filter delta-P too high! %d > %d\n", readings.error.code, (int)readings.chassis.filter_dp, settings->filter_high_limit);
     }
 
     runCoolingCycle();
+
+    // send telemetry
+    txSize = 0;
+    txSize = telemetry.txObj(readings, txSize);
+    telemetry.sendData(txSize);
 
     updateDisplay();
     delay(1000); // TODO: REMOVE ME
@@ -328,49 +339,56 @@ void runCoolingCycle()
     /*
      *   Cooling Cycle
      */
-    compressor_time = millis() - last_compressor;
-    valve_time = millis() - last_valve;
+    readings.compressor.compressor_time = millis() - last_compressor;
+    readings.compressor.valve_time = millis() - last_valve;
+    readings.pump.flow_ok = (digitalRead(FLOW_SW) == LOW);
+    readings.pump.running = (digitalRead(PUMP_RLY) == LOW);
 
     if (running_state)
     {
-        if (reservoir_temp_reading > reservoir_setpoint + settings->hysteresis)
+        if (readings.reservoir.temperature > readings.reservoir.setpoint + settings->hysteresis)
         {
             if (digitalRead(VALVE_RLY) == HIGH)
             {
                 last_valve = millis();
                 digitalWrite(VALVE_RLY, LOW);
+                readings.compressor.valve = true;
             }
-            if (valve_time >= settings->valve_lockout && compressor_time >= settings->compressor_lockout)
+            if (readings.compressor.valve_time >= settings->valve_lockout && readings.compressor.compressor_time >= settings->compressor_lockout)
             {
                 last_compressor = millis();
-                fan_pwm_level = 255;
-                analogWrite(FAN_PWM, fan_pwm_level);
+                readings.chassis.fan.pwm = 255;
+                analogWrite(FAN_PWM, readings.chassis.fan.pwm);
                 digitalWrite(COMPRESSOR_RLY, HIGH);
+                readings.compressor.running = true;
             }
         }
-        if (reservoir_temp_reading <= reservoir_setpoint - settings->hysteresis)
+        if (readings.reservoir.temperature <= readings.reservoir.setpoint - settings->hysteresis)
         {
             if (millis() - last_compressor >= settings->compressor_lockout)
             {
                 last_compressor = millis();
                 last_valve = millis();
-                fan_pwm_level = 0;
-                analogWrite(FAN_PWM, fan_pwm_level);
+                readings.chassis.fan.pwm = 0;
+                analogWrite(FAN_PWM, readings.chassis.fan.pwm);
                 digitalWrite(COMPRESSOR_RLY, LOW);
                 digitalWrite(VALVE_RLY, HIGH);
+                readings.compressor.running = false;
+                readings.compressor.valve = false;
             }
         }
-        if (digitalRead(PUMP_RLY) == HIGH && digitalRead(FLOW_SW) == HIGH)
+        if (readings.pump.running && !readings.pump.flow_ok)
         {
             setError(RESERVOIR_PUMP_ON_WITH_NO_FLOW);
-            Serial.printf("Error %04X: No flow with pump running!\n", error_code);
+            Serial.printf("Error %04X: No flow with pump running!\n", readings.error.code);
         }
     }
 }
 
 void setError(uint16_t error)
 {
-    error_code = error;
+    readings.error.code = error;
+    readings.error.alert = true;
     digitalWrite(ALARMS_RLY, LOW);
 }
 
@@ -395,35 +413,48 @@ void updateDisplay()
     {
         reading_time = millis();
         ++reading_state;
-        if (reading_state >= 4)
+        if (reading_state >= 6)
             reading_state = 0;
         switch (reading_state)
         {
         case 0:
             display.clearDisplay();
-            ringMeter("Case T", case_temperature_reading, 0, 100, 0, 0, GAUGE_RADIUS, "\xF8"
-                                                                                      "C");
-            ringMeter("Case RH", case_humidity_reading, 0, 100, SCREEN_WIDTH - 2 * GAUGE_RADIUS, 0, GAUGE_RADIUS, "%");
+            ringMeter("Case T", readings.chassis.inside_temperature, 0, 100, 0, 0, GAUGE_RADIUS, "\xF8"
+                                                                                                 "C");
+            ringMeter("Case RH", readings.chassis.humidity, 0, 100, SCREEN_WIDTH - 2 * GAUGE_RADIUS, 0, GAUGE_RADIUS, "%");
             display.display();
             break;
         case 1:
             display.clearDisplay();
-            ringMeter("Res T", reservoir_temp_reading, 0, 100, 0, 0, GAUGE_RADIUS, "\xF8"
-                                                                                   "C");
-            ringMeter("Out T", outside_temp_reading, 0, 100, SCREEN_WIDTH - 2 * GAUGE_RADIUS, 0, GAUGE_RADIUS, "\xF8"
-                                                                                                               "C");
+            ringMeter("Res T", readings.reservoir.temperature, 0, 100, 0, 0, GAUGE_RADIUS, "\xF8"
+                                                                                           "C");
+            ringMeter("Out T", readings.chassis.outside_temperature, 0, 100, SCREEN_WIDTH - 2 * GAUGE_RADIUS, 0, GAUGE_RADIUS, "\xF8"
+                                                                                                                               "C");
             display.display();
             break;
         case 2:
             display.clearDisplay();
-            ringMeter("Top Fan", top_fan_reading, 0, 6000, 0, 0, GAUGE_RADIUS, "RPM");
-            ringMeter("Bot Fan", bottom_fan_reading, 0, 6000, SCREEN_WIDTH - 2 * GAUGE_RADIUS, 0, GAUGE_RADIUS, "RPM");
+            ringMeter("Top Fan", readings.chassis.fan.top_tach, 0, 6000, 0, 0, GAUGE_RADIUS, "RPM");
+            ringMeter("Bot Fan", readings.chassis.fan.bottom_tach, 0, 6000, SCREEN_WIDTH - 2 * GAUGE_RADIUS, 0, GAUGE_RADIUS, "RPM");
             display.display();
             break;
         case 3:
             display.clearDisplay();
-            ringMeter("Res Lvl", (int)(resLvlRA.getAverage() / 1000.0), 0, 6, 0, 0, GAUGE_RADIUS, "L");
-            ringMeter("\x83 P", (int)(filterRA.getAverage()), 0, 1024, SCREEN_WIDTH - 2 * GAUGE_RADIUS, 0, GAUGE_RADIUS, "ADC");
+            ringMeter("Res Lvl", (int)readings.reservoir.level_sense, 0, 1024, 0, 0, GAUGE_RADIUS, "ADC");
+            ringMeter("Res Ref", (int)readings.reservoir.level_ref, 0, 1024, SCREEN_WIDTH - 2 * GAUGE_RADIUS, 0, GAUGE_RADIUS, "ADC");
+            display.display();
+            break;
+        case 4:
+            display.clearDisplay();
+            ringMeter("Res Set", readings.reservoir.setpoint, 10, 30, 0, 0, GAUGE_RADIUS, "\xF8"
+                                                                                          "C");
+            ringMeter("\x83 P", (int)readings.chassis.filter_dp, 0, 1024, SCREEN_WIDTH - 2 * GAUGE_RADIUS, 0, GAUGE_RADIUS, "ADC");
+            display.display();
+            break;
+        case 5:
+            display.clearDisplay();
+            ringMeter("Comp", readings.compressor.compressor_time / 1000, 0, (2 * settings->compressor_lockout) / 1000, 0, 0, GAUGE_RADIUS, "s");
+            ringMeter("Valve", readings.compressor.valve_time / 1000, 0, (2 * settings->valve_lockout) / 1000, SCREEN_WIDTH - 2 * GAUGE_RADIUS, 0, GAUGE_RADIUS, "s");
             display.display();
             break;
         default:
