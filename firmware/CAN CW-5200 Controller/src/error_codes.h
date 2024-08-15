@@ -1,7 +1,6 @@
-#ifndef __CW5200_CAN_ERRORS__
-#define __CW5200_CAN_ERRORS__
+#ifndef __CW5200_ERRORS__
+#define __CW5200_ERRORS__
 
-#define RESERVOIR_VL53L0X_NO_CONNECT 0x0101    // VL53L0X No Connect!
 #define RESERVOIR_NO_DS18B20_ADDRESS 0x0102    // No Reservoir DS18B20 Address!
 #define RESERVOIR_NO_DS18B20_READ 0x0103       // No Reservoir DS18B20 Read!
 #define RESERVOIR_OPEN_LOOP 0x0104             // Reservoir Open Loop!
