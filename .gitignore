@@ -5,3 +5,4 @@ _autosave*
 OldVersions/
 Production/
 .venv/
+logs/
