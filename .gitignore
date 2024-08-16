@@ -6,3 +6,4 @@ OldVersions/
 Production/
 .venv/
 logs/
+*.pyc

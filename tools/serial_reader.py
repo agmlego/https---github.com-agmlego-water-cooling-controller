@@ -172,9 +172,10 @@ if __name__ == "__main__":
         auto_refresh=False,
     )
     state_compressor = state_meters.add_task("Compressor", start=False)
-    state_valve = state_meters.add_task("Valve", speed=0, start=False)
+    state_valve = state_meters.add_task("Valve", start=False)
     state_pump = state_meters.add_task("Pump", start=False)
     state_flow = state_meters.add_task("Flow", style="point", start=False)
+    state_updated = state_meters.add_task("Updated", start=False)
 
     meter_group = Group(
         Panel(res_meters, title="Reservoir", expand=False),
@@ -193,6 +194,7 @@ if __name__ == "__main__":
                     readings = get_readings(link)
                     if not started:
                         started = True
+                        updated = arrow.get(tzinfo="America/Detroit")
                         for task in res_meters.task_ids:
                             res_meters.start_task(task)
                         for task in chassis_meters.task_ids:
@@ -272,9 +274,17 @@ if __name__ == "__main__":
                         visible=readings["pump"]["flow_ok"],
                         refresh=True,
                     )
+                    old_updated = updated
+                    updated = arrow.get(tzinfo="America/Detroit")
+
+                    state_meters.update(
+                        state_updated,
+                        description=f'{updated.format("YYYY-MM-DD HH:mm:ss")} ({updated.humanize()})',
+                        refresh=True,
+                    )
 
                     with open(
-                        f'logs/{arrow.get(tzinfo="America/Detroit").format("YYYY_MM_DD_HH_mm_ss_SSSZ")}.json',
+                        f'logs/{updated.format("YYYY_MM_DD_HH_mm_ss_SSSZ")}.json',
                         "w",
                         encoding="utf-8",
                     ) as f:
