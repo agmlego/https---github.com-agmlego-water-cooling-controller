@@ -11,6 +11,7 @@
 #include "error_codes.h"
 #include "settings.h"
 #include "comms.h"
+#include "fans.h"
 
 #define SER_RX 0          // Serial Rx
 #define SER_TX 1          // Serial Tx
@@ -37,9 +38,8 @@ struct_readings readings;
 RunningAverage filterRA(100);
 
 #define FAN_SAMPLING_TIME 1000
-const float HZ_TO_RPM = 30.0;
-FreqMeasureMulti top_fan;
-FreqMeasureMulti bottom_fan;
+volatile struct_fan top_fan;
+volatile struct_fan bottom_fan;
 RunningAverage topRA(10);
 RunningAverage bottomRA(10);
 
@@ -89,6 +89,8 @@ void runCoolingCycle();
 void setError(uint16_t);
 void printAddress(DeviceAddress);
 void updateDisplay();
+void top_fan_pulse();
+void bottom_fan_pulse();
 int ringMeter(const char *, int, int, int, int, int, int, const char *);
 
 void setup()
@@ -115,9 +117,11 @@ void setup()
     pinMode(ALARMS_RLY, OUTPUT);
     digitalWrite(ALARMS_RLY, LOW);
 
-    top_fan.begin(TOP_FAN_RPM);
+    pinMode(TOP_FAN_RPM, INPUT);
+    attachInterrupt(TOP_FAN_RPM, top_fan_pulse, FALLING);
+    pinMode(BOTTOM_FAN_RPM, INPUT);
+    attachInterrupt(BOTTOM_FAN_RPM, bottom_fan_pulse, FALLING);
     topRA.clear();
-    bottom_fan.begin(BOTTOM_FAN_RPM);
     bottomRA.clear();
     pinMode(FAN_PWM, OUTPUT);
     analogWriteFrequency(FAN_PWM, 25000);
@@ -324,19 +328,21 @@ void measureFanRPM()
     /*
      *   Fan RPM Measurement
      */
-    if (top_fan.available())
+    if (top_fan.ready)
     {
-        topRA.addValue(top_fan.read());
+        topRA.addValue(top_fan.pulse_len);
+        top_fan.ready = false;
     }
-    if (bottom_fan.available())
+    if (bottom_fan.ready)
     {
-        bottomRA.addValue(bottom_fan.read());
+        bottomRA.addValue(bottom_fan.pulse_len);
+        bottom_fan.ready = false;
     }
     if (millis() - reading_time > FAN_SAMPLING_TIME)
     {
         if (topRA.getCount() > 0)
         {
-            readings.chassis.fan.top_tach = HZ_TO_RPM * top_fan.countToFrequency((uint32_t)topRA.getAverage());
+            readings.chassis.fan.top_tach = convertMicrosToRPM(topRA.getAverage());
         }
         else
         {
@@ -350,7 +356,7 @@ void measureFanRPM()
 
         if (bottomRA.getCount() > 0)
         {
-            readings.chassis.fan.bottom_tach = HZ_TO_RPM * bottom_fan.countToFrequency((uint32_t)bottomRA.getAverage());
+            readings.chassis.fan.bottom_tach = convertMicrosToRPM(bottomRA.getAverage());
         }
         else
         {
@@ -491,6 +497,22 @@ void updateDisplay()
             break;
         }
     }
+}
+
+void top_fan_pulse()
+{
+    top_fan.current_pulse = micros();
+    top_fan.pulse_len = top_fan.current_pulse - top_fan.last_pulse;
+    top_fan.last_pulse = top_fan.current_pulse;
+    top_fan.ready = true;
+}
+
+void bottom_fan_pulse()
+{
+    bottom_fan.current_pulse = micros();
+    bottom_fan.pulse_len = bottom_fan.current_pulse - bottom_fan.last_pulse;
+    bottom_fan.last_pulse = bottom_fan.current_pulse;
+    bottom_fan.ready = true;
 }
 
 // #########################################################################
