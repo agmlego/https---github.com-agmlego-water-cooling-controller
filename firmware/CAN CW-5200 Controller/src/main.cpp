@@ -79,6 +79,12 @@ struct_settings *settings;
 SerialTransfer telemetry;
 uint16_t txSize = 0;
 
+void measureReservoirLevel();
+void measureChassisTempHumid();
+void measureReservoirTemp();
+void measureOutsideTemp();
+void measureFanRPM();
+void measureFilterDP();
 void runCoolingCycle();
 void setError(uint16_t);
 void printAddress(DeviceAddress);
@@ -189,7 +195,25 @@ void setup()
 
 void loop()
 {
+    measureReservoirLevel();
+    measureChassisTempHumid();
+    measureReservoirTemp();
+    measureOutsideTemp();
+    measureFanRPM();
+    measureFilterDP();
+    runCoolingCycle();
 
+    // send telemetry
+    txSize = 0;
+    txSize = telemetry.txObj(readings, txSize);
+    telemetry.sendData(txSize);
+
+    updateDisplay();
+    delay(1000); // TODO: REMOVE ME
+}
+
+void measureReservoirLevel()
+{
     /*
      *   Reservoir Level Measurement
      */
@@ -202,7 +226,10 @@ void loop()
         setError(RESERVOIR_LEVEL_LOW);
         Serial.printf("Error %04X: Reservoir level too low! %dmL < %dmL\n", readings.error.code, (int)readings.reservoir.level_sense, settings->reservoir_volume_low_limit);
     }
+}
 
+void measureChassisTempHumid()
+{
     /*
      *   Case Temp and RH Measurement
      */
@@ -226,11 +253,14 @@ void loop()
         setError(CASE_HUMIDITY_TOO_HIGH);
         Serial.printf("Error %04X: Case humidity too high! %d%% > %d%%\n", readings.error.code, readings.chassis.humidity, settings->case_humidity_high_limit);
     }
+}
 
+void measureReservoirTemp()
+{
     /*
      *   Reservoir Temp Measurement
      */
-    sensors.requestTemperatures();
+    sensors.requestTemperaturesByAddress(reservoir_temp);
     readings.reservoir.temperature = sensors.getTempC(reservoir_temp);
     if (readings.reservoir.temperature == DEVICE_DISCONNECTED_C)
     {
@@ -248,10 +278,14 @@ void loop()
         setError(RESERVOIR_TEMP_TOO_LOW);
         Serial.printf("Error %04X: Reservoir temperature too low! %dC < %dC\n", readings.error.code, readings.reservoir.temperature, settings->reservoir_temp_low_limit);
     }
+}
 
+void measureOutsideTemp()
+{
     /*
      *   Outside Temp Measurement
      */
+    sensors.requestTemperaturesByAddress(outside_temp);
     readings.chassis.outside_temperature = sensors.getTempC(outside_temp);
     if (readings.chassis.outside_temperature == DEVICE_DISCONNECTED_C)
     {
@@ -269,7 +303,24 @@ void loop()
         setError(CASE_OUTSIDE_TEMP_TOO_LOW);
         Serial.printf("Error %04X: Outside temperature too low! %dC < %dC\n", readings.error.code, readings.chassis.outside_temperature, settings->outside_temp_low_limit);
     }
+}
 
+void measureFilterDP()
+{
+    /*
+     *   Filter Delta-P Measurement
+     */
+    filterRA.addValue(analogRead(FILTER_P));
+    readings.chassis.filter_dp = filterRA.getAverage();
+    if (filterRA.getAverage() > settings->filter_high_limit)
+    {
+        setError(CASE_FILTERS_CLOGGED);
+        Serial.printf("Error %04X: Filter delta-P too high! %d > %d\n", readings.error.code, (int)readings.chassis.filter_dp, settings->filter_high_limit);
+    }
+}
+
+void measureFanRPM()
+{
     /*
      *   Fan RPM Measurement
      */
@@ -311,27 +362,6 @@ void loop()
             }
         }
     }
-
-    /*
-     *   Filter Delta-P Measurement
-     */
-    filterRA.addValue(analogRead(FILTER_P));
-    readings.chassis.filter_dp = filterRA.getAverage();
-    if (filterRA.getAverage() > settings->filter_high_limit)
-    {
-        setError(CASE_FILTERS_CLOGGED);
-        Serial.printf("Error %04X: Filter delta-P too high! %d > %d\n", readings.error.code, (int)readings.chassis.filter_dp, settings->filter_high_limit);
-    }
-
-    runCoolingCycle();
-
-    // send telemetry
-    txSize = 0;
-    txSize = telemetry.txObj(readings, txSize);
-    telemetry.sendData(txSize);
-
-    updateDisplay();
-    delay(1000); // TODO: REMOVE ME
 }
 
 void runCoolingCycle()
