@@ -72,8 +72,8 @@ def get_readings(link: txfer.SerialTransfer):
     recSize += txfer.STRUCT_FORMAT_LENGTHS["f"]
     readings["chassis"]["humidity"] = link.rx_obj(obj_type="f", start_pos=recSize)
     recSize += txfer.STRUCT_FORMAT_LENGTHS["f"]
-    readings["chassis"]["filter_dp"] = link.rx_obj(obj_type="h", start_pos=recSize)
-    recSize += txfer.STRUCT_FORMAT_LENGTHS["h"]
+    readings["chassis"]["filter_dp"] = link.rx_obj(obj_type="H", start_pos=recSize)
+    recSize += txfer.STRUCT_FORMAT_LENGTHS["H"]
     readings["chassis"]["fans"]["top_tach"] = link.rx_obj(
         obj_type="f", start_pos=recSize
     )
@@ -82,26 +82,26 @@ def get_readings(link: txfer.SerialTransfer):
         obj_type="f", start_pos=recSize
     )
     recSize += txfer.STRUCT_FORMAT_LENGTHS["f"]
-    readings["chassis"]["fans"]["pwm"] = link.rx_obj(obj_type="b", start_pos=recSize)
-    recSize += txfer.STRUCT_FORMAT_LENGTHS["b"]
-    readings["compressor"]["running"] = link.rx_obj(obj_type="b", start_pos=recSize) > 0
-    recSize += txfer.STRUCT_FORMAT_LENGTHS["b"]
-    readings["compressor"]["valve"] = link.rx_obj(obj_type="b", start_pos=recSize) > 0
-    recSize += txfer.STRUCT_FORMAT_LENGTHS["b"]
+    readings["chassis"]["fans"]["pwm"] = link.rx_obj(obj_type="B", start_pos=recSize)
+    recSize += txfer.STRUCT_FORMAT_LENGTHS["B"]
+    readings["compressor"]["running"] = link.rx_obj(obj_type="?", start_pos=recSize)
+    recSize += txfer.STRUCT_FORMAT_LENGTHS["?"]
+    readings["compressor"]["valve"] = link.rx_obj(obj_type="?", start_pos=recSize)
+    recSize += txfer.STRUCT_FORMAT_LENGTHS["?"]
     readings["compressor"]["compressor_time"] = link.rx_obj(
         obj_type="i", start_pos=recSize
     )
     recSize += txfer.STRUCT_FORMAT_LENGTHS["i"]
     readings["compressor"]["valve_time"] = link.rx_obj(obj_type="i", start_pos=recSize)
     recSize += txfer.STRUCT_FORMAT_LENGTHS["i"]
-    readings["pump"]["running"] = link.rx_obj(obj_type="b", start_pos=recSize) > 0
-    recSize += txfer.STRUCT_FORMAT_LENGTHS["b"]
-    readings["pump"]["flow_ok"] = link.rx_obj(obj_type="b", start_pos=recSize) > 0
-    recSize += txfer.STRUCT_FORMAT_LENGTHS["b"]
-    readings["error"]["alert"] = link.rx_obj(obj_type="b", start_pos=recSize) > 0
-    recSize += txfer.STRUCT_FORMAT_LENGTHS["b"]
-    readings["error"]["code"] = link.rx_obj(obj_type="h", start_pos=recSize)
-    recSize += txfer.STRUCT_FORMAT_LENGTHS["h"]
+    readings["pump"]["running"] = link.rx_obj(obj_type="?", start_pos=recSize)
+    recSize += txfer.STRUCT_FORMAT_LENGTHS["?"]
+    readings["pump"]["flow_ok"] = link.rx_obj(obj_type="?", start_pos=recSize)
+    recSize += txfer.STRUCT_FORMAT_LENGTHS["?"]
+    readings["error"]["alert"] = link.rx_obj(obj_type="?", start_pos=recSize)
+    recSize += txfer.STRUCT_FORMAT_LENGTHS["?"]
+    readings["error"]["code"] = link.rx_obj(obj_type="H", start_pos=recSize)
+    recSize += txfer.STRUCT_FORMAT_LENGTHS["H"]
 
     return readings
 
