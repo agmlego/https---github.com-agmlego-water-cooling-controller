@@ -1,12 +1,14 @@
 #include "settings.h"
 
 static struct_settings settings = {
-    .version = 2,
+    .version = 3,
     .filter_high_limit = 500,
+    .filter_zero = 100,
     .case_temperature_high_limit = 100,
     .case_temperature_low_limit = 0,
     .case_humidity_high_limit = 80,
     .reservoir_volume_low_limit = 0,
+    .reservoir_ref_zero = 620,
     .reservoir_temp_high_limit = 30,
     .reservoir_temp_low_limit = 5,
     .outside_temp_high_limit = 100,
