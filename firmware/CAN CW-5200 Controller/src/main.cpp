@@ -79,6 +79,7 @@ struct_settings *settings;
 SerialTransfer telemetry;
 uint16_t txSize = 0;
 
+void handleUSBSerial();
 void measureReservoirLevel();
 void measureChassisTempHumid();
 void measureReservoirTemp();
@@ -129,17 +130,17 @@ void setup()
 
     readings.reservoir.setpoint = 20.0;
 
-    Serial.begin(9600);
-    while (!Serial && millis() < 5000)
+    SerialUSB.begin(9600);
+    while (!SerialUSB && millis() < 5000)
     {
         // wait up to 5 seconds for Arduino Serial Monitor
     }
-    Serial.println("RS232 CW_5200 Controller");
+    SerialUSB.println("RS232 CW_5200 Controller");
 
     if (!bme.begin(BME_ADDRESS))
     {
         setError(CASE_BME280_NO_CONNECT);
-        Serial.printf("Error %04X: No connect to BME!\n", readings.error.code);
+        SerialUSB.printf("Error %04X: No connect to BME!\n", readings.error.code);
     }
     else
     {
@@ -151,7 +152,7 @@ void setup()
     if (!display.begin(SSD1306_SWITCHCAPVCC, SCREEN_ADDRESS))
     {
         setError(CASE_DISPLAY_NO_CONNECT);
-        Serial.printf("Error %04X: No connect to display!\n", readings.error.code);
+        SerialUSB.printf("Error %04X: No connect to display!\n", readings.error.code);
     }
     else
     {
@@ -165,26 +166,26 @@ void setup()
     if (!sensors.getAddress(outside_temp, 0))
     {
         setError(CASE_NO_OUTSIDE_DS18B20_ADDRESS);
-        Serial.printf("Error %04X: Unable to find address for outside_temp\n", readings.error.code);
+        SerialUSB.printf("Error %04X: Unable to find address for outside_temp\n", readings.error.code);
     }
     else
     {
-        Serial.print("outside_temp Address: ");
+        SerialUSB.print("outside_temp Address: ");
         printAddress(outside_temp);
-        Serial.println();
+        SerialUSB.println();
         sensors.setResolution(outside_temp, TEMPERATURE_PRECISION);
     }
 
     if (!sensors.getAddress(reservoir_temp, 1))
     {
         setError(RESERVOIR_NO_DS18B20_ADDRESS);
-        Serial.printf("Error %04X: Unable to find address for reservoir_temp\n", readings.error.code);
+        SerialUSB.printf("Error %04X: Unable to find address for reservoir_temp\n", readings.error.code);
     }
     else
     {
-        Serial.print("reservoir_temp Address: ");
+        SerialUSB.print("reservoir_temp Address: ");
         printAddress(reservoir_temp);
-        Serial.println();
+        SerialUSB.println();
         sensors.setResolution(reservoir_temp, TEMPERATURE_PRECISION);
     }
 
@@ -198,6 +199,7 @@ void setup()
 
 void loop()
 {
+    handleUSBSerial();
     measureReservoirLevel();
     measureChassisTempHumid();
     measureReservoirTemp();
@@ -215,6 +217,82 @@ void loop()
     delay(1000); // TODO: REMOVE ME
 }
 
+void handleUSBSerial()
+{
+    if (SerialUSB.available() > 0)
+    {
+        String command = SerialUSB.readStringUntil('\n');
+        char cmd = command.charAt(0);
+        char scmd = command.charAt(1);
+        SerialUSB.print(command.c_str());
+        switch (cmd)
+        {
+        case 'f':
+            /* manual fan control */
+            if (scmd == '1')
+            {
+                readings.chassis.fan.pwm = turnOnFans(FAN_PWM);
+                SerialUSB.println("Fans ON");
+            }
+            else if (scmd == '0')
+            {
+                readings.chassis.fan.pwm = turnOffFans(FAN_PWM);
+                SerialUSB.println("Fans OFF");
+            }
+            break;
+
+        case 'p':
+            /* manual pump control */
+            if (scmd == '1')
+            {
+
+                digitalWrite(PUMP_RLY, LOW);
+                SerialUSB.println("Pump ON");
+            }
+            else if (scmd == '0')
+            {
+
+                digitalWrite(PUMP_RLY, HIGH);
+                SerialUSB.println("Pump OFF");
+            }
+            break;
+        case 'r':
+            /* reset running averages */
+            switch (scmd)
+            {
+            case 'l': // Levels
+                resLvlRA.clear();
+                resRefRA.clear();
+                SerialUSB.println("Cleared eTape RAs");
+                break;
+            case 'f': // Filter
+                filterRA.clear();
+                SerialUSB.println("Cleared filter RAs");
+                break;
+            case 't': // Tach
+                topRA.clear();
+                bottomRA.clear();
+                SerialUSB.println("Cleared tach RAs");
+                break;
+            default:
+                resLvlRA.clear();
+                resRefRA.clear();
+                filterRA.clear();
+                topRA.clear();
+                bottomRA.clear();
+                SerialUSB.println("Cleared ALL RAs");
+                break;
+            }
+
+            break;
+
+        default:
+            SerialUSB.println("UNKNOWN COMMAND");
+            break;
+        }
+    }
+}
+
 void measureReservoirLevel()
 {
     /*
@@ -227,7 +305,7 @@ void measureReservoirLevel()
     if (readings.reservoir.level_sense < settings->reservoir_volume_low_limit)
     {
         setError(RESERVOIR_LEVEL_LOW);
-        Serial.printf("Error %04X: Reservoir level too low! %dmL < %dmL\n", readings.error.code, (int)readings.reservoir.level_sense, settings->reservoir_volume_low_limit);
+        SerialUSB.printf("Error %04X: Reservoir level too low! %dmL < %dmL\n", readings.error.code, (int)readings.reservoir.level_sense, settings->reservoir_volume_low_limit);
     }
 }
 
@@ -244,17 +322,17 @@ void measureChassisTempHumid()
     if (readings.chassis.inside_temperature > settings->case_temperature_high_limit)
     {
         setError(CASE_TEMP_TOO_HIGH);
-        Serial.printf("Error %04X: Case temperature too high! %dC > %dC\n", readings.error.code, readings.chassis.inside_temperature, settings->case_temperature_high_limit);
+        SerialUSB.printf("Error %04X: Case temperature too high! %dC > %dC\n", readings.error.code, readings.chassis.inside_temperature, settings->case_temperature_high_limit);
     }
     if (readings.chassis.inside_temperature < settings->case_temperature_low_limit)
     {
         setError(CASE_TEMP_TOO_LOW);
-        Serial.printf("Error %04X: Case temperature too low! %dC < %dC\n", readings.error.code, readings.chassis.inside_temperature, settings->case_temperature_low_limit);
+        SerialUSB.printf("Error %04X: Case temperature too low! %dC < %dC\n", readings.error.code, readings.chassis.inside_temperature, settings->case_temperature_low_limit);
     }
     if (readings.chassis.humidity > settings->case_humidity_high_limit)
     {
         setError(CASE_HUMIDITY_TOO_HIGH);
-        Serial.printf("Error %04X: Case humidity too high! %d%% > %d%%\n", readings.error.code, readings.chassis.humidity, settings->case_humidity_high_limit);
+        SerialUSB.printf("Error %04X: Case humidity too high! %d%% > %d%%\n", readings.error.code, readings.chassis.humidity, settings->case_humidity_high_limit);
     }
 }
 
@@ -268,18 +346,18 @@ void measureReservoirTemp()
     if (readings.reservoir.temperature == DEVICE_DISCONNECTED_C)
     {
         setError(RESERVOIR_NO_DS18B20_READ);
-        Serial.printf("Error %04X: Could not read reservoir temperature data\n", readings.error.code);
+        SerialUSB.printf("Error %04X: Could not read reservoir temperature data\n", readings.error.code);
         readings.reservoir.temperature = 0.0;
     }
     if (readings.reservoir.temperature > settings->reservoir_temp_high_limit)
     {
         setError(RESERVOIR_TEMP_TOO_HIGH);
-        Serial.printf("Error %04X: Reservoir temperature too high! %dC > %dC\n", readings.error.code, readings.reservoir.temperature, settings->reservoir_temp_high_limit);
+        SerialUSB.printf("Error %04X: Reservoir temperature too high! %dC > %dC\n", readings.error.code, readings.reservoir.temperature, settings->reservoir_temp_high_limit);
     }
     if (readings.reservoir.temperature < settings->reservoir_temp_low_limit)
     {
         setError(RESERVOIR_TEMP_TOO_LOW);
-        Serial.printf("Error %04X: Reservoir temperature too low! %dC < %dC\n", readings.error.code, readings.reservoir.temperature, settings->reservoir_temp_low_limit);
+        SerialUSB.printf("Error %04X: Reservoir temperature too low! %dC < %dC\n", readings.error.code, readings.reservoir.temperature, settings->reservoir_temp_low_limit);
     }
 }
 
@@ -293,18 +371,18 @@ void measureOutsideTemp()
     if (readings.chassis.outside_temperature == DEVICE_DISCONNECTED_C)
     {
         setError(CASE_NO_OUTSIDE_DS18B20_READ);
-        Serial.printf("Error %04X: Could not read outside temperature data\n", readings.error.code);
+        SerialUSB.printf("Error %04X: Could not read outside temperature data\n", readings.error.code);
         readings.chassis.outside_temperature = 0.0;
     }
     if (readings.chassis.outside_temperature > settings->outside_temp_high_limit)
     {
         setError(CASE_OUTSIDE_TEMP_TOO_HIGH);
-        Serial.printf("Error %04X: Outside temperature too high! %dC > %dC\n", readings.error.code, readings.chassis.outside_temperature, settings->outside_temp_high_limit);
+        SerialUSB.printf("Error %04X: Outside temperature too high! %dC > %dC\n", readings.error.code, readings.chassis.outside_temperature, settings->outside_temp_high_limit);
     }
     if (readings.chassis.outside_temperature < settings->outside_temp_low_limit)
     {
         setError(CASE_OUTSIDE_TEMP_TOO_LOW);
-        Serial.printf("Error %04X: Outside temperature too low! %dC < %dC\n", readings.error.code, readings.chassis.outside_temperature, settings->outside_temp_low_limit);
+        SerialUSB.printf("Error %04X: Outside temperature too low! %dC < %dC\n", readings.error.code, readings.chassis.outside_temperature, settings->outside_temp_low_limit);
     }
 }
 
@@ -318,7 +396,7 @@ void measureFilterDP()
     if (filterRA.getAverage() > settings->filter_high_limit)
     {
         setError(CASE_FILTERS_CLOGGED);
-        Serial.printf("Error %04X: Filter delta-P too high! %d > %d\n", readings.error.code, (int)readings.chassis.filter_dp, settings->filter_high_limit);
+        SerialUSB.printf("Error %04X: Filter delta-P too high! %d > %d\n", readings.error.code, (int)readings.chassis.filter_dp, settings->filter_high_limit);
     }
 }
 
@@ -349,7 +427,7 @@ void measureFanRPM()
             if (readings.chassis.fan.pwm > 0)
             {
                 setError(CASE_TOP_FAN_LOW_RPM);
-                Serial.printf("Error %04X: Top fan RPM too low!\n", readings.error.code);
+                SerialUSB.printf("Error %04X: Top fan RPM too low!\n", readings.error.code);
             }
         }
 
@@ -363,7 +441,7 @@ void measureFanRPM()
             if (readings.chassis.fan.pwm > 0)
             {
                 setError(CASE_BOTTOM_FAN_LOW_RPM);
-                Serial.printf("Error %04X: Bottom fan RPM too low!\n", readings.error.code);
+                SerialUSB.printf("Error %04X: Bottom fan RPM too low!\n", readings.error.code);
             }
         }
     }
@@ -415,7 +493,7 @@ void runCoolingCycle()
         if (readings.pump.running && !readings.pump.flow_ok)
         {
             setError(RESERVOIR_PUMP_ON_WITH_NO_FLOW);
-            Serial.printf("Error %04X: No flow with pump running!\n", readings.error.code);
+            SerialUSB.printf("Error %04X: No flow with pump running!\n", readings.error.code);
         }
     }
 }
@@ -434,8 +512,8 @@ void printAddress(DeviceAddress deviceAddress)
     {
         // zero pad the address if necessary
         if (deviceAddress[i] < 16)
-            Serial.print("0");
-        Serial.print(deviceAddress[i], HEX);
+            SerialUSB.print("0");
+        SerialUSB.print(deviceAddress[i], HEX);
     }
 }
 
