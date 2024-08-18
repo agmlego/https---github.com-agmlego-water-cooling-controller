@@ -125,8 +125,7 @@ void setup()
     bottomRA.clear();
     pinMode(FAN_PWM, OUTPUT);
     analogWriteFrequency(FAN_PWM, 25000);
-    readings.chassis.fan.pwm = 0;
-    analogWrite(FAN_PWM, readings.chassis.fan.pwm);
+    readings.chassis.fan.pwm = turnOffFans(FAN_PWM);
 
     readings.reservoir.setpoint = 20.0;
 
@@ -393,8 +392,7 @@ void runCoolingCycle()
             if (readings.compressor.valve_time >= settings->valve_lockout && readings.compressor.compressor_time >= settings->compressor_lockout)
             {
                 last_compressor = millis();
-                readings.chassis.fan.pwm = 255;
-                analogWrite(FAN_PWM, readings.chassis.fan.pwm);
+                readings.chassis.fan.pwm = turnOnFans(FAN_PWM);
                 digitalWrite(COMPRESSOR_RLY, HIGH);
                 readings.compressor.running = true;
             }
@@ -405,8 +403,9 @@ void runCoolingCycle()
             {
                 last_compressor = millis();
                 last_valve = millis();
-                readings.chassis.fan.pwm = 0;
-                analogWrite(FAN_PWM, readings.chassis.fan.pwm);
+                readings.chassis.fan.pwm = turnOffFans(FAN_PWM);
+                topRA.clear();
+                bottomRA.clear();
                 digitalWrite(COMPRESSOR_RLY, LOW);
                 digitalWrite(VALVE_RLY, HIGH);
                 readings.compressor.running = false;

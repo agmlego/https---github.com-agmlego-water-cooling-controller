@@ -11,4 +11,6 @@ struct struct_fan
 };
 
 float convertMicrosToRPM(float);
+uint8_t turnOnFans(uint8_t pin, uint8_t pwm = 255);
+uint8_t turnOffFans(uint8_t pin, uint8_t pwm = 0);
 #endif
