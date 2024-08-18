@@ -285,7 +285,7 @@ void loop()
     {
         if (topRA.getCount() > 0)
         {
-            readings.chassis.fan.top_tach = HZ_TO_RPM * top_fan.countToFrequency(topRA.getAverage());
+            readings.chassis.fan.top_tach = HZ_TO_RPM * top_fan.countToFrequency((uint32_t)topRA.getAverage());
         }
         else
         {
@@ -299,7 +299,7 @@ void loop()
 
         if (bottomRA.getCount() > 0)
         {
-            readings.chassis.fan.bottom_tach = HZ_TO_RPM * bottom_fan.countToFrequency(bottomRA.getAverage());
+            readings.chassis.fan.bottom_tach = HZ_TO_RPM * bottom_fan.countToFrequency((uint32_t)bottomRA.getAverage());
         }
         else
         {
