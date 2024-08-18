@@ -2,6 +2,8 @@
 #define __CW5200_FANS__
 #include <cstdint>
 
+const float HZ_TO_RPM = 30.0;
+
 struct struct_fan
 {
     bool ready = false;
