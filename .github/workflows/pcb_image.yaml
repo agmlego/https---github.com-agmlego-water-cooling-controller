@@ -12,18 +12,30 @@ jobs:
       - name: render pcie pcb image
         uses: linalinn/kicad-render@main
         with:
-        pcb_file: hardware\electrical\pcie_water_loop_controller.kicad_pcb
-        output_path: ${{ github.workspace }}/images/pcie
+          pcb_file: hardware\electrical\pcie_water_loop_controller\pcie_water_loop_controller.kicad_pcb
+          output_path: ${{ github.workspace }}/images/pcie
+      
+      - name: render cw5200 pcb image
+        uses: linalinn/kicad-render@main
+        with:
+          pcb_file: hardware\electrical\cw-5200_controller\cw-5200_controller.kicad_pcb
+          output_path: ${{ github.workspace }}/images/cw5200
         
       - name: Setup Pages
         if: github.ref == 'refs/heads/trunk'
         uses: actions/configure-pages@v3
 
-      - name: Upload Artifact
+      - name: Upload PCIe Artifact
         if: github.ref == 'refs/heads/trunk'
         uses: actions/upload-pages-artifact@v1
         with:
-        path: "images/pcie"
+          path: "images/pcie"
+      
+      - name: Upload CW5200 Artifact
+        if: github.ref == 'refs/heads/trunk'
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: "images/cw5200"
 
   deploy-pages:
     if: github.ref == 'refs/heads/trunk'
