@@ -5,6 +5,8 @@ jobs:
   render-artifacts:
     name: render-artifacts
     runs-on: ubuntu-latest
+    needs: render-ibom
+  
     steps:
       - name: Check out the repo
         uses: actions/checkout@v4
@@ -21,11 +23,19 @@ jobs:
           pcb_file: hardware/electrical/cw-5200_controller/cw-5200_controller.kicad_pcb
           output_path: ${{ github.workspace }}/images/cw5200
 
-      - name: Copy interactive BOMs
-        run: |
-          cd ${{ github.workspace }}
-          cp hardware/electrical/pcie_water_loop_controller/bom/ibom.html images/pcie/ibom.html
-          cp hardware/electrical/cw-5200_controller/bom/ibom.html images/cw5200/ibom.html
+      - name: render pcie ibom
+        uses: agmlego/kicad-ibom@trunk
+        with:
+          pcb_file: hardware/electrical/pcie_water_loop_controller/pcie_water_loop_controller.kicad_pcb
+          output_path: ${{ github.workspace }}/images/pcie
+          ibom_args: --dark-mode --highlight-pin1 selected --include-tracks --include-nets --blacklist "H*"
+
+      - name: render cw5200 ibom
+        uses: agmlego/kicad-ibom@trunk
+        with:
+          pcb_file: hardware/electrical/cw-5200_controller/cw-5200_controller.kicad_pcb
+          output_path: ${{ github.workspace }}/images/cw5200
+          ibom_args: --dark-mode --highlight-pin1 selected --include-tracks --include-nets --blacklist "H*"
         
       - name: Setup Pages
         if: github.ref == 'refs/heads/trunk'
