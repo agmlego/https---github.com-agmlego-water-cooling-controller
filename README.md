@@ -55,8 +55,8 @@ The external board listens to RS232 and adjusts the chiller's power state and se
 9. +5V
 
 ### Images
-![top](agmlego.github.io/water-cooling-controller/pcie/top.png)
-![bottom](agmlego.github.io/water-cooling-controller/pcie/bottom.png)
+![top](https://agmlego.github.io/water-cooling-controller/pcie/top.png)
+![bottom](https://agmlego.github.io/water-cooling-controller/pcie/bottom.png)
 
 ## Chiller Controller
 
@@ -153,5 +153,5 @@ The external board listens to RS232 and adjusts the chiller's power state and se
 * 100% => 3180RPM (9.4ms/106.4Hz on tach.)
 
 ### Images
-![top](agmlego.github.io/water-cooling-controller/cw5200/top.png)
-![bottom](agmlego.github.io/water-cooling-controller/cw5200/bottom.png)
+![top](https://agmlego.github.io/water-cooling-controller/cw5200/top.png)
+![bottom](https://agmlego.github.io/water-cooling-controller/cw5200/bottom.png)
