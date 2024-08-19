@@ -57,34 +57,35 @@ The external board listens to RS232 and adjusts the chiller's power state and se
 ### Images
 ![top](https://agmlego.github.io/water-cooling-controller/pcie/top.png)
 ![bottom](https://agmlego.github.io/water-cooling-controller/pcie/bottom.png)
+[Interactive BOM](https://agmlego.github.io/water-cooling-controller/pcie/ibom.html)
 
 ## Chiller Controller
 
-| Pin | Type    | Signal | Direction | Purpose                                      |
-| --- | ------- | ------ | --------- | -------------------------------------------- |
-| 1   | POWER   | GND    |           | Digital ground                               |
-| 2   | RS232   | RX     | INPUT     | RS232 receive                                |
-| 3   | RS232   | TX     | OUTPUT    | RS232 transmit                               |
-| 4   | 1-WIRE  | D2     | BIDI      | DS18B20 bus                                  |
-| 10  | DIGITAL | D8     | OUTPUT    | Expansion valve relay                        |
-| 11  | DIGITAL | D9     | OUTPUT    | Compressor relay                             |
-| 12  | DIGITAL | D10    | OUTPUT    | [Fan PWM](#nf-a14-control)                   |
-| 13  | DIGITAL | D11    | INPUT     | Bottom fan RPM sensor                        |
-| 14  | DIGITAL | D12    | INPUT     | Top fan RPM sensor                           |
-| 20  | DIGITAL | D13    | OUTPUT    | Status lights/buzzer relay                   |
-| 21  | DIGITAL | D14    | OUTPUT    | Pump relay                                   |
-| 22  | DIGITAL | D15    | INPUT     | Flow switch, active low                      |
-| 23  | I2C     | SCL0   | BIDI      | Local I2C clock                              |
-| 24  | I2C     | SDA0   | BIDI      | Local I2C data                               |
-| 25  | DIGITAL | D18    | INPUT     | Encoder switch                               |
-| 26  | DIGITAL | D19    | INPUT     | Encoder quadrature B                         |
-| 27  | DIGITAL | D20    | INPUT     | Encoder quadrature A                         |
-| 28  | ANALOG  | A7     | INPUT     | Filter check diff. pressure sensor           |
-| 29  | ANALOG  | A8     | INPUT     | Reservoir eTape R<sub>ref</sub> 2000Ω        |
-| 30  | ANALOG  | A9     | INPUT     | Reservoir eTape R<sub>sense</sub> 400-2000Ω  |
-| 31  | POWER   | 3V3    |           | 3.3V output                                  |
-| 32  | POWER   | AGND   |           | Analog ground                                |
-| 33  | POWER   | 5V     |           | 5V input from CAN                            |
+| Pin | Type    | Signal | Direction | Purpose                                     |
+| --- | ------- | ------ | --------- | ------------------------------------------- |
+| 1   | POWER   | GND    |           | Digital ground                              |
+| 2   | RS232   | RX     | INPUT     | RS232 receive                               |
+| 3   | RS232   | TX     | OUTPUT    | RS232 transmit                              |
+| 4   | 1-WIRE  | D2     | BIDI      | DS18B20 bus                                 |
+| 10  | DIGITAL | D8     | OUTPUT    | Expansion valve relay                       |
+| 11  | DIGITAL | D9     | OUTPUT    | Compressor relay                            |
+| 12  | DIGITAL | D10    | OUTPUT    | [Fan PWM](#nf-a14-control)                  |
+| 13  | DIGITAL | D11    | INPUT     | Bottom fan RPM sensor                       |
+| 14  | DIGITAL | D12    | INPUT     | Top fan RPM sensor                          |
+| 20  | DIGITAL | D13    | OUTPUT    | Status lights/buzzer relay                  |
+| 21  | DIGITAL | D14    | OUTPUT    | Pump relay                                  |
+| 22  | DIGITAL | D15    | INPUT     | Flow switch, active low                     |
+| 23  | I2C     | SCL0   | BIDI      | Local I2C clock                             |
+| 24  | I2C     | SDA0   | BIDI      | Local I2C data                              |
+| 25  | DIGITAL | D18    | INPUT     | Encoder switch                              |
+| 26  | DIGITAL | D19    | INPUT     | Encoder quadrature B                        |
+| 27  | DIGITAL | D20    | INPUT     | Encoder quadrature A                        |
+| 28  | ANALOG  | A7     | INPUT     | Filter check diff. pressure sensor          |
+| 29  | ANALOG  | A8     | INPUT     | Reservoir eTape R<sub>ref</sub> 2000Ω       |
+| 30  | ANALOG  | A9     | INPUT     | Reservoir eTape R<sub>sense</sub> 400-2000Ω |
+| 31  | POWER   | 3V3    |           | 3.3V output                                 |
+| 32  | POWER   | AGND   |           | Analog ground                               |
+| 33  | POWER   | 5V     |           | 5V input from CAN                           |
 
 ### JST-XH Connectors
 
@@ -117,12 +118,12 @@ The external board listens to RS232 and adjusts the chiller's power state and se
 | 3   | ANALOG | A7     | INPUT     | Filter check diff. pressure sensor |
 
 #### Reservoir Level eTape
-| Pin | Type   | Signal | Direction | Purpose                      |
-| --- | ------ | ------ | --------- | ---------------------------- |
-| 1   | ANALOG | A9     | INPUT     | R<sub>sense</sub> 400-2000Ω  |
-| 2   | ANALOG | A8     | INPUT     | R<sub>ref</sub> 2000Ω        |
-| 3   | POWER  | AGND   |           | Analog ground                |
-| 4   | POWER  | AGND   |           | Analog ground                |
+| Pin | Type   | Signal | Direction | Purpose                     |
+| --- | ------ | ------ | --------- | --------------------------- |
+| 1   | ANALOG | A9     | INPUT     | R<sub>sense</sub> 400-2000Ω |
+| 2   | ANALOG | A8     | INPUT     | R<sub>ref</sub> 2000Ω       |
+| 3   | POWER  | AGND   |           | Analog ground               |
+| 4   | POWER  | AGND   |           | Analog ground               |
 
 #### Fans
 | Pin | Type    | Signal | Direction | Purpose               |
@@ -155,3 +156,4 @@ The external board listens to RS232 and adjusts the chiller's power state and se
 ### Images
 ![top](https://agmlego.github.io/water-cooling-controller/cw5200/top.png)
 ![bottom](https://agmlego.github.io/water-cooling-controller/cw5200/bottom.png)
+[Interactive BOM](https://agmlego.github.io/water-cooling-controller/cw5200/ibom.html)
